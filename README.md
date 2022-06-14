@@ -1,1 +1,1 @@
-# Harry-s-Paintings
+# This is the Harry's Paintings website.
