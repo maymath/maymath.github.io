@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aizen's Info Zone</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Aizen's Info Zone</h1>
+        <p class="tagline">Connect with me and check out my projects</p>
+        <div class="theme-toggle">
+          <button id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card-section">
+        <h2>Social Media</h2>
+        <div class="card-grid">
+          <!-- Social Media Card 1 (TikTok) -->
+          <div class="card social-card">
+            <div class="card-icon">
+              <i class="fab fa-tiktok"></i>
+              <img src="images/tiktok_pfp.jpg" alt="TikTok Profile" />
+            </div>
+            <div class="card-content">
+              <h3>TikTok</h3>
+              <p class="username">@aizenkaidevlogs</p>
+              <p class="card-description">
+                Sharing development logs and project updates
+              </p>
+              <a
+                href="https://tiktok.com/@aizenkaidevlogs"
+                class="card-link"
+                target="_blank"
+                >Follow Me</a
+              >
+            </div>
+          </div>
+
+          <!-- Social Media Card 2 -->
+          <div class="card social-card">
+            <div class="card-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="card-content">
+              <h3>GitHub</h3>
+              <p class="username">@AizenKai1001</p>
+              <p class="card-description">
+                Check out my code repositories and contributions
+              </p>
+              <a
+                href="https://github.com/AizenKai1001"
+                class="card-link"
+                target="_blank"
+                >See My Code</a
+              >
+            </div>
+          </div>
+
+          <!-- Social Media Card 3 -->
+          <div class="card social-card">
+            <div class="card-icon">
+              <i class="fab fa-linkedin"></i>
+              <!-- If you want to replace with profile picture:
+              <img src="/path/to/linkedin-profile.jpg" alt="LinkedIn Profile" /> -->
+            </div>
+            <div class="card-content">
+              <h3>LinkedIn</h3>
+              <p class="username">Jancarlos Espinal</p>
+              <p class="card-description">
+                Professional profile and career updates
+              </p>
+              <a
+                href="https://linkedin.com/in/jancarlos-espinal"
+                class="card-link"
+                target="_blank"
+                >Connect</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-section">
+        <h2>Projects</h2>
+        <div class="card-grid">
+          <!-- Project Card 1 (Discord Bot - In Progress) -->
+          <div class="card project-card in-progress" id="discord-bot-card">
+            <div class="card-header">
+              <div class="status">In Progress</div>
+              <h3>Discord Bot</h3>
+            </div>
+            <div class="card-image">
+              <img
+                src="/api/placeholder/400/250"
+                alt="Discord Bot Preview"
+                class="preview-img"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-description">
+                A customized discord bot that I have made fully myself.
+              </p>
+              <div class="tech-tags">
+                <span>Python</span>
+                <span>AI</span>
+                <span>JavaScript</span>
+              </div>
+              <button class="card-link expand-btn">View Project</button>
+            </div>
+            <div class="expanded-content">
+              <button class="close-btn"><i class="fas fa-times"></i></button>
+              <div class="expanded-wrapper">
+                <div class="bot-profile">
+                  <div class="bot-banner">
+                    <img src="images/botbanner.jpg" alt="Bot Banner" />
+                  </div>
+                  <div class="bot-avatar">
+                    <img src="images/tiktok_pfp.jpg" alt="Bot Avatar" />
+                  </div>
+                  <h2 class="bot-name">Xerox</h2>
+                </div>
+                <div class="bot-details">
+                  <div class="detail-section">
+                    <h3>About</h3>
+                    <p>
+                      A versatile Discord bot designed to enhance server
+                      management, provide entertainment features, and integrate
+                      AI capabilities. Fully customizable and continuously
+                      updated with new features.
+                    </p>
+                  </div>
+                  <div class="detail-section">
+                    <h3>Commands</h3>
+                    <div class="command-list">
+                      <div class="command">
+                        <h4>/help</h4>
+                        <p>Displays all available commands and their usage</p>
+                      </div>
+                      <div class="command">
+                        <h4>/play</h4>
+                        <p>Plays music from YouTube or Spotify</p>
+                      </div>
+                      <div class="command">
+                        <h4>/moderate</h4>
+                        <p>Provides moderation tools for server management</p>
+                      </div>
+                      <div class="command">
+                        <h4>/ai</h4>
+                        <p>
+                          Has AI integration allowing you to actually talk to an
+                          AI
+                        </p>
+                      </div>
+                      <div class="command">
+                        <h4>/poll</h4>
+                        <p>Creates interactive polls for server members</p>
+                      </div>
+                      <div class="command">
+                        <h4>etc</h4>
+                        <p>Way More commands</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="detail-section">
+                    <h3>Status</h3>
+                    <p>
+                      Currently in active development with weekly updates and
+                      new features being added regularly. Core functionality is
+                      complete and working reliably.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 (Video Game - In Progress) -->
+          <div class="card project-card in-progress" id="video-game-card">
+            <div class="card-header">
+              <div class="status">In Progress</div>
+              <h3>Video Game</h3>
+            </div>
+            <div class="card-image">
+              <img
+                src="/api/placeholder/400/250"
+                alt="Video Game Preview"
+                class="preview-img"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-description">
+                A Video Game made in Unreal Engine 5 (7 months in development).
+              </p>
+              <div class="tech-tags">
+                <span>Unreal Engine 5</span>
+                <span>Survival</span>
+                <span>Adventure</span>
+                <span>Combat</span>
+              </div>
+              <button class="card-link expand-btn">View Progress</button>
+            </div>
+            <div class="expanded-content">
+              <button class="close-btn"><i class="fas fa-times"></i></button>
+              <div class="expanded-wrapper">
+                <div class="game-header">
+                  <h2 class="game-title">No Name Yet</h2>
+                  <div class="game-banner">
+                    <img src="/api/placeholder/1000/300" alt="Game Banner" />
+                  </div>
+                </div>
+                <div class="game-details">
+                  <div class="detail-section">
+                    <h3>Overview</h3>
+                    <p>
+                      An open-world survival adventure game where players must
+                      navigate a hostile environment, gather resources, build
+                      shelters, and battle both natural elements and mysterious
+                      creatures. Set in a new world with realistic graphics
+                      powered by Unreal Engine 5.
+                    </p>
+                  </div>
+                  <div class="detail-section">
+                    <h3>Features</h3>
+                    <ul class="features-list">
+                      <li>
+                        Realistic day/night cycle affecting gameplay mechanics
+                      </li>
+                      <li>Dynamic weather system with environmental effects</li>
+                      <li>Advanced crafting system with hundreds of items</li>
+                      <li>
+                        Immersive combat with various weapons and techniques
+                      </li>
+                      <li>Character progression and skill development</li>
+                      <li>Interactive narrative with multiple story paths</li>
+                      <li>Base building with defensive capabilities</li>
+                      <li>
+                        Advanced movement system allowing smooth and fast
+                        climbing/dodging
+                      </li>
+                      <li>Advanced combat system</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h3>Development Progress</h3>
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 65%"></div>
+                      <span class="progress-text">65% Complete</span>
+                    </div>
+                    <div class="milestones">
+                      <div class="milestone completed">
+                        <span class="milestone-date">Month 1-2</span>
+                        <span class="milestone-title">Core Mechanics</span>
+                      </div>
+                      <div class="milestone completed">
+                        <span class="milestone-date">Month 3-4</span>
+                        <span class="milestone-title">World Building</span>
+                      </div>
+                      <div class="milestone completed">
+                        <span class="milestone-date">Month 5-6</span>
+                        <span class="milestone-title">Character System</span>
+                      </div>
+                      <div class="milestone in-progress">
+                        <span class="milestone-date">Month 7-8</span>
+                        <span class="milestone-title">Combat System</span>
+                      </div>
+                      <div class="milestone">
+                        <span class="milestone-date">Month 9-10</span>
+                        <span class="milestone-title">Story & Quests</span>
+                      </div>
+                      <div class="milestone">
+                        <span class="milestone-date">Month 11-12</span>
+                        <span class="milestone-title">Polish & Release</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3 (Portfolio Website - Completed) -->
+          <div class="card project-card completed" id="portfolio-card">
+            <div class="card-header">
+              <div class="status">Completed</div>
+              <h3>Portfolio Website</h3>
+            </div>
+            <div class="card-image website-preview">
+              <div class="browser-frame">
+                <div class="browser-header">
+                  <div class="browser-buttons">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="browser-address">AizenKai1001.github.io</div>
+                </div>
+                <div class="browser-content">
+                  <iframe
+                    id="site-preview"
+                    src="about:blank"
+                    title="Portfolio Website Preview"
+                  ></iframe>
+                  <div class="iframe-placeholder">
+                    <img
+                      src="/api/placeholder/400/250"
+                      alt="Portfolio Website Preview"
+                    />
+                    <div class="preview-overlay">Live Preview</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <p class="card-description">
+                Personal portfolio showcasing my skills and projects with a
+                clean, modern design.
+              </p>
+              <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <a
+                href="https://AizenKai1001.github.io"
+                class="card-link"
+                target="_blank"
+                >Visit Site</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 AizenKai1001. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="home.js"></script>
+  </body>
+</html>
