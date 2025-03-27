@@ -121,7 +121,7 @@ header h1 {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
   width: 90%;
   height: 80vh;
   max-width: 1000px;
@@ -130,7 +130,7 @@ header h1 {
 }
 
 .card.expanded:hover {
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -253,6 +253,7 @@ header h1 {
   width: 100%;
   height: 180px;
   overflow: hidden;
+  position: relative;
 }
 
 .card-image img {
@@ -479,7 +480,6 @@ header h1 {
 .dark-mode .command p {
   color: #cccccc;
 }
-
 /* Video Game Expanded Content */
 .game-header {
   text-align: center;
@@ -717,114 +717,109 @@ header h1 {
   font-weight: bold;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  header {
-    padding: 30px 0;
-  }
-
-  header h1 {
-    font-size: 2rem;
-  }
-
-  .social-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .card-icon {
-    padding: 15px;
-  }
-
-  .milestones {
-    grid-template-columns: 1fr;
-  }
-
-  .command-list {
-    grid-template-columns: 1fr;
-  }
-
-  .card.expanded {
-    width: 95%;
-    height: 85vh;
-  }
-
-  .bot-avatar {
-    left: 20px;
-    width: 100px;
-    height: 100px;
-  }
-
-  .bot-name {
-    margin-left: 140px;
-    font-size: 1.8rem;
-  }
+/* Preview styles for Discord Bot and Video Game cards */
+.preview-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+.dark-mode .preview-container {
+  background-color: #1f4068;
 }
 
-/* Additional fixes for expanded cards */
-.card.expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) !important;
-  width: 90%;
-  height: 80vh;
-  max-width: 1000px;
-  z-index: 1000;
-  overflow-y: auto;
+/* Discord Bot Preview Styles */
+.preview-container .bot-profile {
+  position: relative;
+  height: 100px;
+  margin-bottom: 0;
 }
 
-/* Additional accessibility improvements */
-.expand-btn:focus,
-.close-btn:focus,
-#theme-toggle-btn:focus {
-  outline: 2px solid #3498db;
+.preview-container .bot-banner {
+  height: 70px;
+  border-radius: 0;
 }
 
-/* Adding swipe hint for mobile */
-@media (max-width: 768px) {
-  .expanded-content::after {
-    content: "← Swipe to close";
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    animation: fadeOut 5s forwards;
-    pointer-events: none;
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+.preview-container .bot-avatar {
+  width: 50px;
+  height: 50px;
+  bottom: -25px;
+  left: 15px;
+  border-width: 3px;
 }
 
-/* Full preview mode styling */
+.preview-container .bot-name {
+  margin-left: 80px;
+  margin-top: -25px;
+  font-size: 1.2rem;
+}
+
+.preview-details {
+  padding: 10px 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-about {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.dark-mode .preview-about {
+  color: #cccccc;
+}
+
+.view-full-note {
+  font-size: 0.7rem;
+  color: #3498db;
+  text-align: center;
+  margin-top: auto;
+  padding-top: 5px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .view-full-note {
+  color: #4a8dd8;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Video Game Preview Styles */
+.game-preview-container .game-header {
+  margin-bottom: 0;
+}
+
+.game-preview-container .game-title {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  padding: 0 15px;
+}
+
+.game-preview-container .game-banner {
+  height: 70px;
+  margin-bottom: 0;
+}
+
+.preview-progress {
+  margin: 15px 0;
+}
+
+.preview-progress .progress {
+  height: 15px;
+}
+
+.preview-progress .progress-text {
+  font-size: 0.7rem;
+}
+
+/* Enhanced portfolio preview */
 .card-image.full-preview-mode {
   height: 400px;
   transition: height 0.3s ease;
@@ -834,7 +829,6 @@ header h1 {
   height: 350px;
 }
 
-/* Fullscreen mode for portfolio card */
 .card.fullscreen-preview {
   position: fixed;
   top: 0;
@@ -896,7 +890,6 @@ header h1 {
   right: 60px;
 }
 
-/* Dark mode compatibility */
 .dark-mode .preview-control-btn {
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -905,16 +898,110 @@ header h1 {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Ensure iframe takes up full space in the preview container */
-#site-preview {
-  width: 100%;
-  height: 100%;
-  border: none;
-  transition: all 0.3s ease;
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
-/* Responsive adjustments */
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.dark-mode footer {
+  background-color: #0f3460;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 30px 0;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .social-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-icon {
+    padding: 15px;
+  }
+
+  .milestones {
+    grid-template-columns: 1fr;
+  }
+
+  .command-list {
+    grid-template-columns: 1fr;
+  }
+
+  .card.expanded {
+    width: 95%;
+    height: 85vh;
+  }
+
+  .bot-avatar {
+    left: 20px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .bot-name {
+    margin-left: 140px;
+    font-size: 1.8rem;
+  }
+
+  .preview-container .bot-profile,
+  .game-preview-container .game-header {
+    height: 80px;
+  }
+
+  .preview-container .bot-banner,
+  .game-preview-container .game-banner {
+    height: 50px;
+  }
+
+  .preview-container .bot-avatar {
+    width: 40px;
+    height: 40px;
+    bottom: -20px;
+  }
+
+  .preview-container .bot-name {
+    margin-left: 70px;
+    font-size: 1rem;
+  }
+
+  .preview-about {
+    font-size: 0.7rem;
+  }
+
+  .view-full-note {
+    font-size: 0.6rem;
+  }
+
+  .game-preview-container .game-title {
+    font-size: 1.1rem;
+  }
+
   .card-image.full-preview-mode {
     height: 300px;
   }
@@ -932,4 +1019,37 @@ header h1 {
   .preview-close-btn {
     right: 50px;
   }
+
+  .expanded-content::after {
+    content: "← Swipe to close";
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    animation: fadeOut 5s forwards;
+    pointer-events: none;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+/* Accessibility improvements */
+.expand-btn:focus,
+.close-btn:focus,
+#theme-toggle-btn:focus {
+  outline: 2px solid #3498db;
 }
