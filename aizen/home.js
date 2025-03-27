@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Initialize preview toggles for Discord Bot and Video Game cards
+  initializeProjectPreviews();
+
   // Project card expansion functionality
   const expandButtons = document.querySelectorAll(".expand-btn");
   const closeButtons = document.querySelectorAll(".close-btn");
@@ -145,6 +148,106 @@ document.addEventListener("DOMContentLoaded", function () {
           controlButtons.forEach((btn) => btn.remove());
         });
       });
+    }
+  }
+
+  // Function to initialize Discord Bot and Video Game previews
+  function initializeProjectPreviews() {
+    // Initialize Discord Bot preview
+    const discordBotCard = document.getElementById("discord-bot-card");
+    if (discordBotCard) {
+      // Get elements
+      const cardImage = discordBotCard.querySelector(".card-image");
+      const previewImg = cardImage.querySelector(".preview-img");
+      const expandedContent = discordBotCard.querySelector(".expanded-content");
+
+      // Create a preview container
+      const previewContainer = document.createElement("div");
+      previewContainer.className = "preview-container";
+
+      // Clone the important parts of expanded content for preview
+      const botProfile = expandedContent
+        .querySelector(".bot-profile")
+        .cloneNode(true);
+      const botDetails = document.createElement("div");
+      botDetails.className = "preview-details";
+
+      // Add some key information
+      const aboutSection = expandedContent.querySelector(
+        ".detail-section:first-child p"
+      ).textContent;
+      const aboutPreview = document.createElement("p");
+      aboutPreview.className = "preview-about";
+      aboutPreview.textContent =
+        aboutSection.length > 120
+          ? aboutSection.substring(0, 120) + "..."
+          : aboutSection;
+
+      // Create a "View Full Details" note
+      const viewFullNote = document.createElement("p");
+      viewFullNote.className = "view-full-note";
+      viewFullNote.innerHTML =
+        "Click <strong>View Project</strong> to see all details";
+
+      // Add elements to preview container
+      botDetails.appendChild(aboutPreview);
+      botDetails.appendChild(viewFullNote);
+      previewContainer.appendChild(botProfile);
+      previewContainer.appendChild(botDetails);
+
+      // Replace the preview image with our custom preview
+      previewImg.style.display = "none";
+      cardImage.appendChild(previewContainer);
+    }
+
+    // Initialize Video Game preview
+    const videoGameCard = document.getElementById("video-game-card");
+    if (videoGameCard) {
+      // Get elements
+      const cardImage = videoGameCard.querySelector(".card-image");
+      const previewImg = cardImage.querySelector(".preview-img");
+      const expandedContent = videoGameCard.querySelector(".expanded-content");
+
+      // Create a preview container
+      const previewContainer = document.createElement("div");
+      previewContainer.className = "preview-container game-preview-container";
+
+      // Clone the game header for preview
+      const gameHeader = expandedContent
+        .querySelector(".game-header")
+        .cloneNode(true);
+
+      // Create preview details
+      const gameDetails = document.createElement("div");
+      gameDetails.className = "preview-details";
+
+      // Add a progress indicator
+      const progressIndicator = document.createElement("div");
+      progressIndicator.className = "preview-progress";
+      const progressBar = expandedContent
+        .querySelector(".progress")
+        .cloneNode(true);
+      const progressText = expandedContent
+        .querySelector(".progress-text")
+        .cloneNode(true);
+      progressIndicator.appendChild(progressBar);
+      progressIndicator.appendChild(progressText);
+
+      // Create a "View Full Details" note
+      const viewFullNote = document.createElement("p");
+      viewFullNote.className = "view-full-note";
+      viewFullNote.innerHTML =
+        "Click <strong>View Progress</strong> to see all details";
+
+      // Add elements to preview container
+      gameDetails.appendChild(progressIndicator);
+      gameDetails.appendChild(viewFullNote);
+      previewContainer.appendChild(gameHeader);
+      previewContainer.appendChild(gameDetails);
+
+      // Replace the preview image with our custom preview
+      previewImg.style.display = "none";
+      cardImage.appendChild(previewContainer);
     }
   }
 
