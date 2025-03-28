@@ -1053,3 +1053,34 @@ footer {
 #theme-toggle-btn:focus {
   outline: 2px solid #3498db;
 }
+
+/* HomePage Button */
+.home-page {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
+
+#home-page-btn {
+  background: none;
+  border: grey;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.266);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#home-page-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#home-page-btn:focus {
+  outline: 2px solid #3498db;
+}
