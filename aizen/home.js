@@ -251,6 +251,86 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Initialize Intersection Observer for card fade-in animation
+  const cards = document.querySelectorAll(".card");
+
+  const observerOptions = {
+    root: null, // Use the viewport as the root
+    rootMargin: "0px",
+    threshold: 0.1, // Trigger when 10% of the card is visible
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target); // Stop observing once visible
+      }
+    });
+  };
+
+  const cardObserver = new IntersectionObserver(
+    observerCallback,
+    observerOptions
+  );
+
+  cards.forEach((card) => {
+    cardObserver.observe(card);
+
+    // Add event listeners for card tilt effect
+    card.addEventListener("mousemove", handleCardMouseMove);
+    card.addEventListener("mouseleave", handleCardMouseLeave);
+  });
+
+  // Function to handle card mouse move for tilt effect
+  function handleCardMouseMove(e) {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Mouse X relative to card
+    const y = e.clientY - rect.top;  // Mouse Y relative to card
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const deltaX = x - centerX;
+    const deltaY = y - centerY;
+
+    // Adjust sensitivity/max tilt here
+    const maxTilt = 10; // degrees
+    const rotateY = (deltaX / centerX) * maxTilt;
+    const rotateX = (-deltaY / centerY) * maxTilt;
+
+    // Get the current Y translation from the fade-in effect if card is visible
+    const currentTransform = window.getComputedStyle(card).transform;
+    let translateY = "translateY(0px)"; // Default if not visible or no transform
+    if (currentTransform !== 'none') {
+        const matrix = new DOMMatrix(currentTransform);
+        translateY = `translateY(${matrix.m42}px)`;
+    }
+
+    // Apply transform with tilt, existing translate, and scale
+    card.style.transition = 'transform 0.05s linear'; // Faster transition during hover
+    card.style.transform = `${translateY} scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }
+
+  // Function to handle card mouse leave to reset tilt
+  function handleCardMouseLeave(e) {
+    const card = e.currentTarget;
+    // Reset transition and transform to the visible state
+    card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease, width 0.5s ease, height 0.5s ease';
+
+    // Determine the base transform (only translateY if visible)
+    let baseTransform = 'translateY(20px)'; // Initial before visible
+    if (card.classList.contains('is-visible')) {
+        baseTransform = 'translateY(0px)';
+    }
+    card.style.transform = baseTransform;
+  }
+
+  // ---- New Flow Field Background Effect ----
+  // Removed code - Now lives in aizen/flowfield.js
+  // ---- End Flow Field Background Effect ----
+
   // Initialize touch swipe detection for mobile
   let touchStartX = 0;
   let touchEndX = 0;
@@ -264,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (e) => {
         touchStartX = e.changedTouches[0].screenX;
       },
-      false
+      { passive: true }
     );
 
     // Touch end event
@@ -297,4 +377,31 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
+  // Initialize the water effect background (after other setup)
+  if (typeof initializeWaterEffect === 'function') {
+      initializeWaterEffect();
+  } else {
+      console.error('initializeWaterEffect function not found. Make sure flowfield.js is loaded.');
+  }
+
+  // Initialize the flow field effect background (after other setup)
+  if (typeof initializeFlowFieldEffect === 'function') {
+      initializeFlowFieldEffect();
+  } else {
+      console.error('initializeFlowFieldEffect function not found. Make sure flowfield.js is loaded.');
+  }
+
+  // Initialize particle background after other setup
+  console.log("Attempting to initialize background effect...");
+  // Wait a short moment for the canvas element to be definitely ready
+  setTimeout(() => {
+      if (typeof initializeExtremeWebGLConstellation === 'function') {
+          initializeExtremeWebGLConstellation();
+      } else {
+          console.error("Background effect function (initializeExtremeWebGLConstellation) not found. Ensure flowfield.js is loaded correctly.");
+          const canvasElement = document.getElementById('particle-canvas');
+          if (canvasElement) canvasElement.style.display = 'none'; // Hide canvas if effect fails
+      }
+  }, 100); // 100ms delay
 });

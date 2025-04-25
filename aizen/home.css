@@ -9,14 +9,38 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
+  /* Background is now handled by canvas, set a fallback */
   background-color: #f5f7fa;
-  transition: all 0.3s ease;
+  /* Remove gradient/mouse interaction props */
+  /* --mouse-x: 50%; */
+  /* --mouse-y: 50%; */
+  /* background: radial-gradient(...) */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Adjust transition */
+  position: relative; /* Needed for canvas positioning */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Dark Mode Styles */
 body.dark-mode {
+  /* Background is now handled by canvas, set a fallback */
   background-color: #1a1a2e;
   color: #f0f0f0;
+  /* Remove gradient/mouse interaction props */
+  /* transition: background 0.2s linear; <-- remove this specific one */
+}
+
+/* Remove the gradient animation (if not already removed/commented) */
+/* @keyframes gradientShift { ... } */
+
+/* Canvas Styling */
+#particle-canvas {
+  position: fixed; /* Use fixed to cover viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place behind all other content */
+  display: block; /* Remove potential extra space */
 }
 
 .container {
@@ -43,26 +67,37 @@ a {
 
 /* Header */
 header {
-  background-color: #3498db;
+  /* Updated background to gradient */
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   color: white;
   padding: 40px 0;
   text-align: center;
   position: relative;
+  /* Add gradient bottom border */
+  border-bottom: 3px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #3498db, #8e44ad); /* Adjust colors */
 }
 
 .dark-mode header {
-  background-color: #162447;
+  /* Updated background to gradient for dark mode */
+  background: linear-gradient(135deg, #162447 0%, #1f4068 100%);
+  border-image-source: linear-gradient(to left, #1f4068, #4a8dd8); /* Adjust colors */
 }
 
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: white;
+  /* Add text shadow */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .tagline {
   font-size: 1.2rem;
   opacity: 0.9;
+  /* Add text shadow */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Card Sections */
@@ -93,6 +128,8 @@ header h1 {
   gap: 25px;
   max-width: 90%;
   margin: 0 auto;
+  /* Add perspective for 3D tilt effect */
+  perspective: 1000px;
 }
 
 /* Card Styles */
@@ -102,9 +139,12 @@ header h1 {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.5s ease,
-    height 0.5s ease;
+  /* Updated transition for tilt effect reset */
+  transition: transform 0.1s linear, box-shadow 0.3s ease, opacity 0.4s ease,
+    width 0.5s ease, height 0.5s ease; /* Tilt reset faster */
   z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .dark-mode .card {
@@ -113,8 +153,13 @@ header h1 {
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  /* Existing hover effects - tilt will be added via JS */
+  /* transform: translateY(-5px) scale(1.02); <-- This will be overridden by JS on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card.expanded {
@@ -159,11 +204,12 @@ header h1 {
   padding: 8px 15px;
   border-radius: 4px;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .card-link:hover {
   background-color: #2980b9;
+  transform: scale(1.05);
 }
 
 /* Expand Button (like card-link) */
@@ -174,7 +220,7 @@ header h1 {
   padding: 8px 15px;
   border-radius: 4px;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   border: none;
   cursor: pointer;
   font-family: inherit;
@@ -183,6 +229,7 @@ header h1 {
 
 .expand-btn:hover {
   background-color: #2980b9;
+  transform: scale(1.05);
 }
 
 /* Social Media Cards */
@@ -198,6 +245,13 @@ header h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .card-icon i,
+.card:hover .card-icon img {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }
 
 .card-icon img {
@@ -205,6 +259,7 @@ header h1 {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  transition: transform 0.2s ease;
 }
 
 .username {
@@ -280,11 +335,23 @@ header h1 {
   font-size: 0.8rem;
   margin-right: 5px;
   margin-bottom: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-tags span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode .tech-tags span {
   background-color: #0f3460;
   color: #88ccff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark-mode .tech-tags span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Theme Toggle Button */
@@ -307,11 +374,12 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #theme-toggle-btn:hover {
   background-color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
 }
 
 #theme-toggle-btn .fa-sun {
@@ -336,10 +404,16 @@ header h1 {
   padding: 20px;
   height: 100%;
   overflow-y: auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transform-origin: center center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .card.expanded .expanded-content {
   display: block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .card.expanded .card-image,
@@ -1074,13 +1148,20 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #home-page-btn:hover {
   background-color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 #home-page-btn:focus {
   outline: 2px solid #3498db;
+}
+
+/* Style for when card becomes visible */
+.card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

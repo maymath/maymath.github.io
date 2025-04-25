@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+    <canvas id="particle-canvas"></canvas>
     <header>
       <div class="container">
         <h1>Aizen's Info Zone</h1>
@@ -147,31 +148,132 @@
                     <h3>Commands</h3>
                     <div class="command-list">
                       <div class="command">
-                        <h4>/help</h4>
-                        <p>Displays all available commands and their usage</p>
+                        <h4>/hello</h4>
+                        <p>Sends hello to the user.</p>
                       </div>
                       <div class="command">
-                        <h4>/play</h4>
-                        <p>Plays music from YouTube or Spotify</p>
+                        <h4>/userinfo &lt;member&gt;</h4>
+                        <p>Gets information about a chosen server member</p>
                       </div>
                       <div class="command">
-                        <h4>/moderate</h4>
-                        <p>Provides moderation tools for server management</p>
+                        <h4>/playerstats</h4>
+                        <p>Fetches player stats from Marvel Rivals</p>
                       </div>
                       <div class="command">
-                        <h4>/ai</h4>
-                        <p>
-                          Has AI integration allowing you to actually talk to an
-                          AI
-                        </p>
+                        <h4>/send_commands_n8n</h4>
+                        <p>Manually sends the command list to the N8N webhook.</p>
                       </div>
                       <div class="command">
-                        <h4>/poll</h4>
-                        <p>Creates interactive polls for server members</p>
+                        <h4>/ping</h4>
+                        <p>Fetches bot latency</p>
                       </div>
                       <div class="command">
-                        <h4>etc</h4>
-                        <p>Way More commands</p>
+                        <h4>/patchnotes</h4>
+                        <p>Gets the most recent patch notes from Marvel Rivals</p>
+                      </div>
+                      <div class="command">
+                        <h4>/remind &lt;time&gt; &lt;message&gt; [recurring] [interval]</h4>
+                        <p>Set a reminder</p>
+                      </div>
+                      <div class="command">
+                        <h4>/list_reminders</h4>
+                        <p>List your active reminders</p>
+                      </div>
+                      <div class="command">
+                        <h4>/cancel_reminder &lt;reminder_id&gt;</h4>
+                        <p>Cancel one of your reminders</p>
+                      </div>
+                      <div class="command">
+                        <h4>/schedule_announcement &lt;channel&gt; &lt;time&gt; &lt;message&gt; [recurring] [interval]</h4>
+                        <p>Schedule a server announcement</p>
+                      </div>
+                      <div class="command">
+                        <h4>/list_announcements</h4>
+                        <p>List scheduled announcements for this server</p>
+                      </div>
+                      <div class="command">
+                        <h4>/cancel_announcement &lt;announcement_id&gt;</h4>
+                        <p>Cancel a scheduled announcement</p>
+                      </div>
+                      <div class="command">
+                        <h4>/math &lt;operation&gt; &lt;num1&gt; &lt;num2&gt;</h4>
+                        <p>Does simple +, -, *, / operations</p>
+                      </div>
+                      <div class="command">
+                        <h4>/meme</h4>
+                        <p>Fetches random meme from r/memes</p>
+                      </div>
+                      <div class="command">
+                        <h4>/serverinfo</h4>
+                        <p>Displays server information</p>
+                      </div>
+                      <div class="command">
+                        <h4>/tempmute &lt;member&gt; &lt;duration&gt; [reason]</h4>
+                        <p>Temporarily mute a member</p>
+                      </div>
+                      <div class="command">
+                        <h4>/unmute &lt;member&gt; [reason]</h4>
+                        <p>Unmute a previously muted member</p>
+                      </div>
+                      <div class="command">
+                        <h4>/tempban &lt;member&gt; &lt;duration&gt; [reason] [delete_message_days]</h4>
+                        <p>Temporarily ban a member</p>
+                      </div>
+                      <div class="command">
+                        <h4>/unban &lt;user_id&gt; [reason]</h4>
+                        <p>Unban a previously banned user</p>
+                      </div>
+                      <div class="command">
+                        <h4>/create_role_menu &lt;channel&gt; &lt;title&gt; &lt;description&gt;</h4>
+                        <p>Create a reaction role menu</p>
+                      </div>
+                      <div class="command">
+                        <h4>/delete_role_menu &lt;message_id&gt;</h4>
+                        <p>Delete a reaction role menu</p>
+                      </div>
+                      <div class="command">
+                        <h4>/temprole &lt;member&gt; &lt;role&gt; &lt;duration&gt; [reason]</h4>
+                        <p>Give a user a temporary role</p>
+                      </div>
+                      <div class="command">
+                        <h4>/removetemprole &lt;member&gt; &lt;role&gt; [reason]</h4>
+                        <p>Remove a temporary role from a user</p>
+                      </div>
+                      <div class="command">
+                        <h4>/list_temp_roles</h4>
+                        <p>List all active temporary roles</p>
+                      </div>
+                      <div class="command">
+                        <h4>/role_info &lt;role&gt;</h4>
+                        <p>Display information about a role</p>
+                      </div>
+                      <div class="command">
+                        <h4>/randomnumber &lt;min_value&gt; &lt;max_value&gt;</h4>
+                        <p>Generates a random number between a given min and max value</p>
+                      </div>
+                      <div class="command">
+                        <h4>/anime &lt;anime&gt;</h4>
+                        <p>Fetches information about a chosen anime from Reddit</p>
+                      </div>
+                      <div class="command">
+                        <h4>/set_welcome &lt;channel&gt; [message] [enable_images]</h4>
+                        <p>Configure welcome message settings</p>
+                      </div>
+                      <div class="command">
+                        <h4>/disable_welcome</h4>
+                        <p>Disable welcome messages</p>
+                      </div>
+                      <div class="command">
+                        <h4>/welcome_test</h4>
+                        <p>Test the current welcome message</p>
+                      </div>
+                      <div class="command">
+                        <h4>/songinfo &lt;song&gt;</h4>
+                        <p>Fetches information about a chosen song from Spotify</p>
+                      </div>
+                      <div class="command">
+                        <h4>/valagent &lt;agent&gt;</h4>
+                        <p>Fetches information about a chosen Valorant Agent from Reddit</p>
                       </div>
                     </div>
                   </div>
@@ -352,7 +454,8 @@
       </div>
     </footer>
 
-    <!-- Link to external JavaScript file -->
+    <!-- Link to external JavaScript files -->
+    <script src="flowfield.js"></script>
     <script src="home.js"></script>
   </body>
 </html>
