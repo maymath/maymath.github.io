@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 1: HTML Basics</title>
+    <link rel="stylesheet" href="course_styles.css" />
+    <script src="course_script.js"></script>
+    <script src="sandbox_assets/sandbox.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="ch1_basics.html">HTML Basics</a>
+        <a href="ch2_layout.html">Layout</a>
+        <a href="ch3_advanced_css.html">Advanced CSS</a>
+      </div>
+      <button class="theme-toggle">Toggle Theme</button>
+    </nav>
+
+    <div class="content-wrapper">
+      <h1>Chapter 1: HTML Basics</h1>
+      <p>Welcome to the first chapter of our web development course! Here, we'll learn the fundamentals of HTML, including elements, attributes, and basic structure.</p>
+
+      <section class="lesson-section" id="html-basics">
+        <h2>HTML Basics: Structuring Web Content</h2>
+        <p>HTML stands for <strong>HyperText Markup Language</strong>. Don't worry too much about the full name! Just know that HTML uses special keywords called <strong>tags</strong> to tell the web browser how to structure the content you want to display (like headings, paragraphs, images, links).</p>
+        <p>Tags usually come in pairs: an opening tag (like <code>&lt;p&gt;</code> for a paragraph) and a closing tag (like <code>&lt;/p&gt;</code>, notice the slash <code>/</code>). The content you want to show goes *between* these tags.</p>
+
+        <h3>Your First HTML Page: Basic Document Structure</h3>
+        <p>Every single HTML page needs this basic skeleton structure to work correctly in a browser:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+    &lt;!-- Links to CSS or other metadata go here --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Visible page content goes here --&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <ul>
+          <li><code>&lt;!DOCTYPE html&gt;</code>: Declares the document type.</li>
+          <li><code>&lt;html&gt;</code>: The root element of the page.</li>
+          <li><code>&lt;head&gt;</code>: Contains meta-information (like character set, viewport settings, title, links to stylesheets). Not directly visible on the page.</li>
+          <li><code>&lt;body&gt;</code>: Contains the visible content of the page (text, images, links, etc.).</li>
+        </ul>
+        <p>Think of the <code>&lt;head&gt;</code> as the "behind-the-scenes" info for the browser, and the <code>&lt;body&gt;</code> as the actual stuff the user sees on the page.</p>
+        <div class="try-it">
+          <h3>Try It: Basic HTML Structure</h3>
+          <div class="sandbox-container">
+            <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <title>Basic HTML Structure</title>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>This is a basic HTML document structure.</p>
+</body>
+</html></textarea>
+            <button class="sandbox-run">Run Code</button>
+            <div class="sandbox-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot red"></div>
+                  <div class="terminal-dot yellow"></div>
+                  <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">sandbox-terminal</div>
+              </div>
+              <div class="terminal-content"></div>
+            </div>
+            <div class="sandbox-error" style="display: none;"></div>
+            <iframe class="sandbox-preview"></iframe>
+          </div>
+        </div>
+
+        <h3>Common HTML Building Blocks (Tags)</h3>
+        <p>Here are some of the most frequently used HTML tags to build your content:</p>
+        <ul>
+          <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Heading tags. <code>&lt;h1&gt;</code> is the main heading (like a chapter title), <code>&lt;h2&gt;</code> is a sub-heading, and so on down to <code>&lt;h6&gt;</code>. Use them to create a logical outline for your content.</li>
+          <li><code>&lt;p&gt;</code>: Paragraph tag. Use this for regular blocks of text.</li>
+          <li><code>&lt;a&gt;</code>: Anchor tag, used to create links. It needs the <code>href</code> attribute (see below) to know *where* to link to. Example: <code>&lt;a href="https://www.google.com"&gt;Go to Google&lt;/a&gt;</code>.</li>
+          <li><code>&lt;img&gt;</code>: Image tag. Used to display images. It needs the <code>src</code> attribute (see below) to know *which* image file to show. It also needs an <code>alt</code> attribute for descriptions. This is a self-closing tag (doesn't need a separate <code>&lt;/img&gt;</code> in modern HTML). Example: <code>&lt;img src="dog.jpg" alt="A picture of my dog"&gt;</code>.</li>
+          <li><code>&lt;ul&gt;</code>: Unordered list tag. Creates a bulleted list. You put list items (<code>&lt;li&gt;</code>) inside it.</li>
+          <li><code>&lt;ol&gt;</code>: Ordered list tag. Creates a numbered list. You also put list items (<code>&lt;li&gt;</code>) inside it.</li>
+          <li><code>&lt;li&gt;</code>: List item tag. Represents a single item within a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> list.</li>
+          <li><code>&lt;div&gt;</code>: Division tag. A generic container often used to group other elements together for styling or layout purposes (we'll use this a lot with CSS).</li>
+          <li><code>&lt;span&gt;</code>: Another generic container, but this one is for small pieces *inline* with text (e.g., styling a single word).</li>
+        </ul>
+        <p>Example combining several tags:</p>
+        <pre><code>&lt;h2&gt;My Favorite Fruits&lt;/h2&gt;
+&lt;p&gt;Here is a list of fruits I enjoy:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Bananas&lt;/li&gt;
+  &lt;li&gt;Strawberries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Learn more at &lt;a href="https://example.com" target="_blank"&gt;Example Fruit Site&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- The target="_blank" attribute opens the link in a new tab --&gt;
+&lt;img src="../images/placeholder.png" alt="Placeholder Image" width="100"&gt;
+&lt;!-- Assuming a placeholder image exists at ../images/placeholder.png --&gt;
+&lt;!-- The width attribute sets the image width in pixels --&gt;</code></pre>
+        <div class="try-it">
+          <h3>Try It: Lists, Links, and Images</h3>
+          <div class="sandbox-container">
+            <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <title>Lists and Links</title>
+</head>
+<body>
+    <h2>My Favorite Foods</h2>
+    <ul>
+        <li>Pizza</li>
+        <li>Ice Cream</li>
+        <li>Sushi</li>
+    </ul>
+    
+    <h2>Useful Links</h2>
+    <p>Check out this <a href="https://www.example.com">example website</a></p>
+    
+    <h2>Random Image</h2>
+    <img src="https://picsum.photos/200" alt="Random image">
+</body>
+</html></textarea>
+            <button class="sandbox-run">Run Code</button>
+            <div class="sandbox-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot red"></div>
+                  <div class="terminal-dot yellow"></div>
+                  <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">sandbox-terminal</div>
+              </div>
+              <div class="terminal-content"></div>
+            </div>
+            <div class="sandbox-error" style="display: none;"></div>
+            <iframe class="sandbox-preview"></iframe>
+          </div>
+        </div>
+
+        <h3>Giving Tags More Information: HTML Attributes</h3>
+        <p>Attributes are extra bits of information added *inside* the opening tag of an element. They usually come in <code>name="value"</code> pairs and tell the browser more about the element or how it should behave.</p>
+        <p>You've already seen some:</p>
+        <ul>
+          <li><code>href="url"</code>: Used with the <code>&lt;a&gt;</code> tag to specify the link's destination (Hypertext Reference).</li>
+          <li><code>src="filename"</code>: Used with the <code>&lt;img&gt;</code> tag to specify the path to the image file (Source).</li>
+          <li><code>alt="description"</code>: Used with the <code>&lt;img&gt;</code> tag to provide alternative text. This is important for screen readers (used by visually impaired users) and also displays if the image can't load.</li>
+          <li><code>width="pixels"</code> / <code>height="pixels"</code>: Can be used on images (and other elements) to suggest dimensions.</li>
+          <li><code>target="_blank"</code>: Used on an <code>&lt;a&gt;</code> tag to make the link open in a new browser tab.</li>
+          <li><code>title="tooltip text"</code>: Provides extra advisory information, often shown as a tooltip when hovering over the element.</li>
+        </ul>
+        <p>Two crucial attributes used heavily with CSS are:</p>
+        <ul>
+          <li><code>class="name"</code>: Assigns one or more class names to an element. You can give the *same* class name to multiple elements. Think of it like putting a category label on elements (e.g., <code>class="important-warning"</code>). Used to apply the same style to many elements.</li>
+          <li><code>id="unique_name"</code>: Assigns a unique identifier to *one specific* element on the page. An ID must be unique – no two elements on the same page can have the same ID. Think of it like giving an element a specific name (e.g., <code>id="main-navigation-bar"</code>). Used to target one specific element for styling or JavaScript.</li>
+        </ul>
+        <pre><code>&lt;!-- An element can have multiple classes, separated by spaces --&gt;
+&lt;div class="highlight warning-box"&gt;This div has two classes.&lt;/div&gt;
+
+&lt;!-- An ID must be unique on the page --&gt;
+&lt;p id="introduction"&gt;This paragraph has a unique ID.&lt;/p&gt;
+
+&lt;a href="https://google.com" title="Visit Google Search" target="_blank"&gt;Go to Google&lt;/a&gt;</code></pre>
+        <p>Choosing between <code>class</code> and <code>id</code>: Use <code>class</code> when you might want to style multiple elements the same way. Use <code>id</code> only when you need to uniquely identify one specific element.</p>
+        <div class="try-it">
+          <h3>Try It: Styling with Classes</h3>
+          <div class="sandbox-container">
+            <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <title>Styling with Classes</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            padding: 10px;
+        }
+        .big-text {
+            font-size: 24px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p class="highlight">This text has a yellow background</p>
+    <p class="big-text">This text is big and blue</p>
+    <p class="highlight big-text">This text has both styles!</p>
+</body>
+</html></textarea>
+            <button class="sandbox-run">Run Code</button>
+            <div class="sandbox-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot red"></div>
+                  <div class="terminal-dot yellow"></div>
+                  <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">sandbox-terminal</div>
+              </div>
+              <div class="terminal-content"></div>
+            </div>
+            <div class="sandbox-error" style="display: none;"></div>
+            <iframe class="sandbox-preview"></iframe>
+          </div>
+        </div>
+
+        <h3>Common CSS Selectors (More Detail)</h3>
+        <ul>
+          <li><strong>Element Selector:</strong> <code>p { color: gray; }</code> (Styles all <code>&lt;p&gt;</code> elements).</li>
+          <li><strong>Class Selector:</strong> <code>.important { font-weight: bold; }</code> (Styles any element with <code>class="important"</code>). You can chain classes: <code>.important.highlight { background-color: yellow; }</code> (Styles elements with *both* classes).</li>
+          <li><strong>ID Selector:</strong> <code>#main-logo { border: 1px solid black; }</code> (Styles the single element with <code>id="main-logo"</code>). Use IDs sparingly, primarily for unique page landmarks or JavaScript hooks.</li>
+          <li><strong>Attribute Selector:</strong> <code>a[target="_blank"] { background: lightblue; }</code> (Styles links that open in a new tab).</li>
+          <li><strong>Descendant Combinator:</strong> <code>nav ul { list-style: none; }</code> (Styles only <code>&lt;ul&gt;</code> elements that are *inside* a <code>&lt;nav&gt;</code> element).</li>
+          <li><strong>Pseudo-classes:</strong> Select based on state, like <code>a:hover { text-decoration: none; }</code> (Styles links when the mouse is over them). We'll cover more in Chapter 3.</li>
+        </ul>
+        <p>Example combining selectors:</p>
+        <pre><code>/* Style all paragraphs inside elements with class "article" */
+.article p {
+  line-height: 1.8;
+}
+
+/* Style the element with ID "submit-button" when hovered */
+#submit-button:hover {
+  background-color: green;
+  color: white;
+}</code></pre>
+        <div class="try-it">
+          <h3>Try It: Using Selectors</h3>
+          <div class="sandbox-container">
+            <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Selectors</title>
+    <style>
+        /* Element selector */
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Class selector */
+        .important {
+            font-weight: bold;
+            color: red;
+        }
+        
+        /* ID selector */
+        #header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Descendant selector */
+        div p {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>CSS Selectors Example</h1>
+    </div>
+    
+    <div>
+        <p>This paragraph is indented.</p>
+        <p class="important">This is an important message!</p>
+    </div>
+</body>
+</html></textarea>
+            <button class="sandbox-run">Run Code</button>
+            <div class="sandbox-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot red"></div>
+                  <div class="terminal-dot yellow"></div>
+                  <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">sandbox-terminal</div>
+              </div>
+              <div class="terminal-content"></div>
+            </div>
+            <div class="sandbox-error" style="display: none;"></div>
+            <iframe class="sandbox-preview"></iframe>
+          </div>
+        </div>
+
+        <h3>Common CSS Properties</h3>
+        <p>There are hundreds of CSS properties. Here are a few basics:</p>
+        <ul>
+          <li><code>color</code>: Sets the text color.</li>
+          <li><code>background-color</code>: Sets the background color of an element.</li>
+          <li><code>font-size</code>: Sets the size of the text.</li>
+          <li><code>font-family</code>: Sets the typeface (e.g., Arial, 'Times New Roman', sans-serif).</li>
+          <li><code>margin</code>: Controls the space *outside* an element's border.</li>
+          <li><code>padding</code>: Controls the space *inside* an element's border (between the border and the content).</li>
+          <li><code>border</code>: Shorthand for setting border width, style (<code>solid</code>, <code>dashed</code>, <code>dotted</code>), and color. Example: <code>border: 2px dashed red;</code></li>
+          <li><code>width</code> / <code>height</code>: Set the dimensions of an element (doesn't apply to all element types).</li>
+          <li><code>text-align</code>: Aligns text within an element (<code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code>).</li>
+        </ul>
+        <div class="try-it">
+          <h3>Try It: The Box Model</h3>
+          <div class="sandbox-container">
+            <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <title>Box Model Demo</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 5px solid #333;
+            margin: 30px;
+            background-color: #f0f0f0;
+        }
+        
+        .content {
+            background-color: #fff;
+            padding: 10px;
+            border: 2px dashed #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="content">
+            This box demonstrates the CSS box model with content, padding, border, and margin.
+        </div>
+    </div>
+</body>
+</html></textarea>
+            <button class="sandbox-run">Run Code</button>
+            <div class="sandbox-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot red"></div>
+                  <div class="terminal-dot yellow"></div>
+                  <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">sandbox-terminal</div>
+              </div>
+              <div class="terminal-content"></div>
+            </div>
+            <div class="sandbox-error" style="display: none;"></div>
+            <iframe class="sandbox-preview"></iframe>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="lesson-section" id="next-steps">
+        <h2>Next Steps & Practice</h2>
+        <p>You've learned the basics of HTML structure and CSS styling! Here's how to continue:</p>
+        <ul>
+          <li><strong>Experiment:</strong> Modify the code on this page or create your own simple HTML file. Try changing colors, fonts, and adding new tags.</li>
+          <li><strong>Inspect Elements:</strong> Use your browser's developer tools (usually by right-clicking on a webpage and selecting "Inspect" or "Inspect Element") to see the HTML and CSS of live websites.</li>
+          <li><strong>Build Simple Projects:</strong> Try creating a personal bio page, a recipe page, or a simple blog layout using only what you've learned here.</li>
+          <li><strong>Ready for More?</strong> Move on to <a href="ch2_layout.html">Chapter 2: CSS Layout</a> to learn how to arrange elements on your page using techniques like Flexbox and Grid.</li>
+          <li><strong>Explore Resources:</strong> Websites like MDN Web Docs (Mozilla Developer Network) and W3Schools offer extensive documentation and tutorials.</li>
+        </ul>
+        <p>Keep practicing, and you'll be building impressive websites in no time!</p>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="../../index.html">Back to Home</a></li>
+      <li><a href="ch2_layout.html">Next: Chapter 2</a></li>
+       <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Docs</a></li>
+       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Docs</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      body.classList.toggle('dark-mode', savedTheme === 'dark');
+      themeToggleBtn.classList.toggle('dark-active', savedTheme === 'dark');
+    }
+
+    // Theme toggle event listener
+    themeToggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      themeToggleBtn.classList.toggle('dark-active', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

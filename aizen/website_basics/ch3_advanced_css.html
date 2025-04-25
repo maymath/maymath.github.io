@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Advanced CSS</title>
+    <link rel="stylesheet" href="course_styles.css">
+    <script src="course_script.js"></script>
+    <script src="sandbox_assets/sandbox.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <a href="ch1_basics.html">HTML Basics</a>
+            <a href="ch2_layout.html">Layout</a>
+            <a href="ch3_advanced_css.html">Advanced CSS</a>
+        </div>
+        <button class="theme-toggle">Toggle Theme</button>
+    </nav>
+
+    <div class="content-wrapper">
+        <h1>Chapter 3: Advanced CSS</h1>
+        <p>Welcome to Advanced CSS! In this chapter, we'll explore powerful CSS features that will help you create more dynamic and interactive web pages.</p>
+
+        <section class="lesson-section" id="pseudo-classes">
+            <h2>Pseudo-classes and Pseudo-elements</h2>
+            <p>Pseudo-classes and pseudo-elements allow you to style elements based on their state or to target specific parts of an element.</p>
+            
+            <div class="sandbox-container">
+                <h3>Try It: Pseudo-classes</h3>
+                <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .interactive-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        .interactive-button:active {
+            background-color: #3d8b40;
+            transform: scale(0.95);
+        }
+
+        .form-input {
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+            width: 200px;
+        }
+
+        .form-input:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        .custom-list li:first-child {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .custom-list li:last-child {
+            color: #e74c3c;
+            font-style: italic;
+        }
+
+        .custom-list li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <button class="interactive-button">Hover and Click Me!</button>
+    <br><br>
+    <input type="text" class="form-input" placeholder="Focus me!">
+    <br>
+    <ul class="custom-list">
+        <li>First Item</li>
+        <li>Second Item</li>
+        <li>Third Item</li>
+        <li>Fourth Item</li>
+        <li>Last Item</li>
+    </ul>
+</body>
+</html></textarea>
+                <button class="sandbox-run">Run Code</button>
+                <div class="sandbox-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-title">sandbox-terminal</div>
+                    </div>
+                    <div class="terminal-content"></div>
+                </div>
+                <div class="sandbox-error" style="display: none;"></div>
+                <iframe class="sandbox-preview"></iframe>
+            </div>
+
+            <div class="sandbox-container">
+                <h3>Try It: Pseudo-elements</h3>
+                <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .fancy-quote {
+            position: relative;
+            padding: 20px;
+            margin: 20px;
+            background: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .fancy-quote::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            font-size: 60px;
+            color: #4CAF50;
+            opacity: 0.3;
+        }
+
+        .highlight-text::first-letter {
+            font-size: 3em;
+            color: #4CAF50;
+            float: left;
+            margin-right: 8px;
+            line-height: 1;
+        }
+
+        .custom-link {
+            text-decoration: none;
+            color: #4CAF50;
+            position: relative;
+        }
+
+        .custom-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4CAF50;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .custom-link:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="fancy-quote">
+        This is a fancy blockquote with a decorative quotation mark.
+    </div>
+
+    <p class="highlight-text">
+        Drop caps are a classic typographic element used to start paragraphs with style.
+        This paragraph demonstrates the use of ::first-letter pseudo-element.
+    </p>
+
+    <p>
+        Here's a <a href="#" class="custom-link">custom link</a> with an animated underline effect.
+    </p>
+</body>
+</html></textarea>
+                <button class="sandbox-run">Run Code</button>
+                <div class="sandbox-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-title">sandbox-terminal</div>
+                    </div>
+                    <div class="terminal-content"></div>
+                </div>
+                <div class="sandbox-error" style="display: none;"></div>
+                <iframe class="sandbox-preview"></iframe>
+            </div>
+        </section>
+
+        <section class="lesson-section" id="transitions-transforms">
+            <h2>Transitions and Transforms</h2>
+            <p>CSS transitions and transforms allow you to create smooth animations and visual effects.</p>
+
+            <div class="sandbox-container">
+                <h3>Try It: Transitions and Transforms</h3>
+                <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .transform-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .transform-box {
+            width: 100px;
+            height: 100px;
+            background: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scale:hover {
+            transform: scale(1.2);
+        }
+
+        .rotate:hover {
+            transform: rotate(45deg);
+        }
+
+        .skew:hover {
+            transform: skew(20deg);
+        }
+
+        .translate:hover {
+            transform: translate(20px, -20px);
+        }
+
+        .card {
+            width: 200px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="transform-container">
+        <div class="transform-box scale">Scale</div>
+        <div class="transform-box rotate">Rotate</div>
+        <div class="transform-box skew">Skew</div>
+        <div class="transform-box translate">Translate</div>
+    </div>
+
+    <div class="card">
+        <h3>Hover Card</h3>
+        <p>This card demonstrates combined transitions for transform and box-shadow.</p>
+    </div>
+</body>
+</html></textarea>
+                <button class="sandbox-run">Run Code</button>
+                <div class="sandbox-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-title">sandbox-terminal</div>
+                    </div>
+                    <div class="terminal-content"></div>
+                </div>
+                <div class="sandbox-error" style="display: none;"></div>
+                <iframe class="sandbox-preview"></iframe>
+            </div>
+        </section>
+
+        <section class="lesson-section" id="animations">
+            <h2>CSS Animations</h2>
+            <p>CSS animations allow you to create complex, multi-step animations using @keyframes.</p>
+
+            <div class="sandbox-container">
+                <h3>Try It: CSS Animations and Transitions</h3>
+                <textarea class="sandbox-code" data-type="html"><!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .animation-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            justify-content: center;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Bounce effect */
+        .bounce {
+            transform: translateY(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bounce:hover {
+            transform: translateY(-20px);
+        }
+
+        /* Scale effect */
+        .scale {
+            transition: transform 0.3s ease;
+        }
+        .scale:hover {
+            transform: scale(1.2);
+        }
+
+        /* Rotate effect */
+        .rotate {
+            transition: transform 0.3s ease;
+        }
+        .rotate:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Combined effects */
+        .combo {
+            transition: all 0.3s ease;
+        }
+        .combo:hover {
+            transform: scale(1.1) rotate(45deg);
+            background-color: #2196F3;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Additional styles for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .description {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <h2>Interactive CSS Transitions</h2>
+    <div class="description">
+        Hover over each box to see different transition effects!
+    </div>
+    <div class="animation-container">
+        <div class="box bounce">Bounce</div>
+        <div class="box scale">Scale</div>
+        <div class="box rotate">Rotate</div>
+        <div class="box combo">Combo</div>
+    </div>
+    <p>Each box demonstrates a different type of CSS transition effect.</p>
+</body>
+</html></textarea>
+                <button class="sandbox-run">Run Code</button>
+                <div class="sandbox-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-title">sandbox-terminal</div>
+                    </div>
+                    <div class="terminal-content"></div>
+                </div>
+                <div class="sandbox-error" style="display: none;"></div>
+                <iframe class="sandbox-preview"></iframe>
+            </div>
+        </section>
+
+        <section class="lesson-section" id="next-steps">
+            <h2>Next Steps</h2>
+            <p>Now that you've completed all three chapters, you have a solid foundation in web development! Here are some suggestions for continuing your learning:</p>
+            <ul>
+                <li>Practice building complete web pages using HTML and CSS</li>
+                <li>Learn JavaScript to add interactivity to your websites</li>
+                <li>Explore CSS frameworks like Bootstrap or Tailwind CSS</li>
+                <li>Study responsive design techniques</li>
+                <li>Learn about CSS preprocessors like Sass or Less</li>
+            </ul>
+            <p>Remember to check the MDN documentation for detailed information about any CSS properties or techniques you want to learn more about!</p>
+        </section>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="../../index.html">Back to Home</a></li>
+            <li><a href="ch2_layout.html">Previous: Chapter 2</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Docs</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.toggle('dark-mode', savedTheme === 'dark');
+            themeToggleBtn.classList.toggle('dark-active', savedTheme === 'dark');
+        }
+
+        // Theme toggle event listener
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            themeToggleBtn.classList.toggle('dark-active', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html> 

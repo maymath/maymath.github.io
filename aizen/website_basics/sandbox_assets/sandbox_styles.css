@@ -1,0 +1,355 @@
+/* Styles for the "Try It" preview box placeholder */
+.try-it-preview {
+    margin-top: 15px; /* Space between code and preview */
+    padding: 15px;
+    border: 1px dashed #6c757d; /* Dashed gray border */
+    background-color: #f8f9fa; /* Light gray background */
+    min-height: 80px; /* Give it some minimum height */
+    border-radius: 4px;
+}
+.try-it-preview p {
+    color: #6c757d; /* Gray text for placeholder */
+    font-style: italic;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0; /* Center text vertically a bit */
+}
+
+/* Sandbox Container */
+.sandbox-container {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+/* Code Editor */
+.sandbox-code {
+    width: 100%;
+    min-height: 200px;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    resize: vertical;
+}
+
+.sandbox-code:focus {
+    outline: none;
+    border-color: #4a9eff;
+    box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+}
+
+.sandbox-error {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 6px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #ff6b6b;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.error-item {
+    margin: 8px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.error-item:before {
+    content: "❯";
+    color: #ff6b6b;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.error-item:last-child {
+    border-bottom: none;
+}
+
+/* Add a success message style */
+.sandbox-error.success {
+    background: #1e1e1e;
+    color: #4CAF50;
+    border-color: #333;
+}
+
+.sandbox-error.success .error-item:before {
+    content: "✓";
+    color: #4CAF50;
+}
+
+/* Run Button */
+.sandbox-run {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sandbox-run:hover {
+    background: #45a049;
+}
+
+.sandbox-run:active {
+    background: #3d8b40;
+}
+
+/* Preview Area */
+.sandbox-preview {
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sandbox-container {
+        padding: 10px;
+    }
+    
+    .sandbox-code {
+        min-height: 150px;
+        font-size: 13px;
+    }
+    
+    .sandbox-preview {
+        min-height: 200px;
+    }
+}
+
+/* Terminal Interface */
+.sandbox-terminal {
+    background-color: #1e1e1e;
+    border-radius: 6px;
+    margin: 10px 0;
+    overflow: hidden;
+    display: block;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.terminal-header {
+    background-color: #323232;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 10px;
+}
+
+.terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-dot.red { background-color: #ff5f56; }
+.terminal-dot.yellow { background-color: #ffbd2e; }
+.terminal-dot.green { background-color: #27c93f; }
+
+.terminal-title {
+    color: #999;
+    font-size: 12px;
+}
+
+.terminal-content {
+    padding: 12px;
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y: auto;
+    color: #fff;
+}
+
+/* Terminal Line Styles */
+.terminal-line {
+    margin: 4px 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-line.error {
+    color: #ff5f56;
+}
+
+.terminal-line.success {
+    color: #27c93f;
+}
+
+.terminal-line.system {
+    color: #ffbd2e;
+}
+
+.terminal-line.command {
+    color: #58a6ff;
+}
+
+/* Terminal Code Context Styles */
+.terminal-code-context {
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    overflow-x: auto;
+}
+
+.terminal-line-number {
+    color: #666;
+    margin-right: 12px;
+    user-select: none;
+    opacity: 0.7;
+}
+
+.terminal-error-line {
+    color: #ff8080;
+    background-color: rgba(255, 0, 0, 0.1);
+    display: block;
+    width: 100%;
+}
+
+.terminal-error-pointer {
+    color: #ff5f56;
+    margin-left: 8px;
+}
+
+/* Code Context Line Highlighting */
+.terminal-code-context .context-line {
+    display: flex;
+    padding: 2px 0;
+}
+
+.terminal-code-context .context-line.current {
+    background-color: rgba(255, 95, 86, 0.1);
+}
+
+.terminal-code-context .line-content {
+    color: #d4d4d4;
+    white-space: pre;
+}
+
+.terminal-code-context .line-marker {
+    color: #666;
+    margin-right: 8px;
+    user-select: none;
+}
+
+.terminal-code-context .error-marker {
+    color: #ff5f56;
+    margin-right: 8px;
+}
+
+/* Error and Warning Messages */
+.terminal-error-message {
+    color: #ff5f56;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 4px 8px;
+    background-color: rgba(255, 95, 86, 0.1);
+    border-radius: 4px;
+}
+
+.terminal-warning-message {
+    color: #ffbd2e;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 4px 8px;
+    background-color: rgba(255, 189, 46, 0.1);
+    border-radius: 4px;
+}
+
+/* Success Messages */
+.terminal-success-message {
+    color: #27c93f;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 4px 8px;
+    background-color: rgba(39, 201, 63, 0.1);
+    border-radius: 4px;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .terminal-code-context {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .terminal-line-number {
+    color: #888;
+}
+
+.dark-mode .terminal-code-context .line-content {
+    color: #e4e4e4;
+}
+
+/* Syntax Highlighting in Code Context */
+.terminal-code-context .keyword {
+    color: #569cd6;
+}
+
+.terminal-code-context .string {
+    color: #ce9178;
+}
+
+.terminal-code-context .comment {
+    color: #6a9955;
+}
+
+.terminal-code-context .tag {
+    color: #4ec9b0;
+}
+
+.terminal-code-context .attribute {
+    color: #9cdcfe;
+}
+
+.terminal-code-context .value {
+    color: #ce9178;
+}
+
+/* Terminal Scrollbar */
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
+} 
