@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Clone</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/file-explorer.css">
+    <link rel="stylesheet" href="css/terminal.css">
+    <link rel="stylesheet" href="css/resizable.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Monaco Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.js"></script>
+</head>
+<body>
+    <div class="editor-container">
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="title-bar-title">
+                <i class="fas fa-code"></i>
+                <span>VS Code Clone</span>
+            </div>
+            <div class="title-bar-controls">
+                <div class="title-bar-button minimize">─</div>
+                <div class="title-bar-button maximize">□</div>
+                <div class="title-bar-button close">×</div>
+            </div>
+        </div>
+
+        <!-- Editor Layout -->
+        <div class="editor-layout">
+            <!-- Activity Bar -->
+            <div class="activity-bar">
+                <div class="activity-bar-item active" data-action="toggleExplorer">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <div class="activity-bar-item" data-action="toggleSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="activity-bar-item" data-action="toggleSourceControl">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="activity-bar-item" data-action="toggleDebug">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <div class="activity-bar-item" data-action="toggleExtensions">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    <!-- File Explorer will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Editor Tabs -->
+                <div class="editor-tabs">
+                    <!-- Tabs will be dynamically added here -->
+                </div>
+
+                <!-- Editor Content -->
+                <div class="editor-content">
+                    <div id="monaco-editor"></div>
+                </div>
+
+                <!-- Preview Container -->
+                <div class="preview-container">
+                    <iframe class="preview-content"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Container -->
+        <div class="panel-container">
+            <div class="panel-tabs">
+                <div class="panel-tab active" data-panel="terminal">
+                    <i class="fas fa-terminal"></i>
+                    <span>Terminal</span>
+                </div>
+                <div class="panel-tab" data-panel="preview">
+                    <i class="fas fa-eye"></i>
+                    <span>Preview</span>
+                </div>
+            </div>
+            <div class="panel-content">
+                <!-- Terminal Container -->
+                <div class="terminal-container">
+                    <div class="terminal-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-bar-item" data-id="branch">
+                <i class="fas fa-code-branch"></i>
+                <span>main</span>
+            </div>
+            <div class="status-bar-item" data-id="problems">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>0 Problems</span>
+            </div>
+            <div class="status-bar-item" data-id="position">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ln 1, Col 1</span>
+            </div>
+            <div class="status-bar-item" data-id="language">
+                <i class="fas fa-file-code"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="status-bar-item" data-id="encoding">
+                <i class="fas fa-file-alt"></i>
+                <span>UTF-8</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/vscode.js"></script>
+    <script src="js/resizable.js"></script>
+    <script src="js/file-manager.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Initialize Components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize VS Code UI first (sets up the basic structure)
+            const vscode = new VSCodeUI();
+            
+            // Initialize Resizable Panels (needs to be after UI setup)
+            const resizable = new ResizablePanel();
+            
+            // Initialize File Manager (depends on UI and resizable panels)
+            const fileManager = new FileManager();
+            
+            // Initialize Terminal (depends on UI and resizable panels)
+            const terminal = new Terminal();
+            
+            // Initialize Main Editor last (depends on all other components)
+            const editor = new CodeEditor();
+            
+            // Store instances globally for debugging/access
+            window.vscode = vscode;
+            window.resizable = resizable;
+            window.fileManager = fileManager;
+            window.terminal = terminal;
+            window.editor = editor;
+            
+            // Setup event listeners for activity bar
+            document.querySelectorAll('.activity-bar-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const action = item.dataset.action;
+                    if (vscode[action]) {
+                        vscode[action]();
+                    }
+                });
+            });
+            
+            // Setup panel tab switching
+            document.querySelectorAll('.panel-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const panel = tab.dataset.panel;
+                    const terminalContainer = document.querySelector('.terminal-container');
+                    const previewContainer = document.querySelector('.preview-container');
+                    
+                    if (panel === 'terminal') {
+                        terminalContainer.style.display = 'flex';
+                        previewContainer.style.display = 'none';
+                    } else if (panel === 'preview') {
+                        terminalContainer.style.display = 'none';
+                        previewContainer.style.display = 'flex';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

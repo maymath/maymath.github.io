@@ -1,0 +1,84 @@
+.terminal {
+    background-color: #1e1e1e;
+    color: #cccccc;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 8px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.terminal-line {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.terminal-prompt {
+    color: #0dbc79;
+    margin-right: 8px;
+    user-select: none;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #cccccc;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    outline: none;
+    flex: 1;
+}
+
+.terminal-output {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-error {
+    color: #f14c4c;
+}
+
+.terminal-success {
+    color: #0dbc79;
+}
+
+.terminal-warning {
+    color: #cca700;
+}
+
+.terminal-info {
+    color: #3794ff;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: #cccccc;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scrollbar Styles */
+.terminal-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.terminal-container::-webkit-scrollbar-thumb {
+    background: #3c3c3c;
+    border-radius: 4px;
+}
+
+.terminal-container::-webkit-scrollbar-thumb:hover {
+    background: #4f4f4f;
+} 

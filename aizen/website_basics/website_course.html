@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .course-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        .sidebar {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .chapter-item:hover {
+            transform: translateX(5px);
+        }
+
+        .chapter-item h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .chapter-item p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #219a52;
+        }
+
+        .code-editor-card {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .code-editor-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .code-editor-card p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        .course-description {
+            margin-bottom: 30px;
+        }
+
+        .course-description p {
+            margin-bottom: 15px;
+        }
+
+        .prerequisites {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .prerequisites h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-button">← Back to Main Site</a>
+        <div class="container">
+            <h1>Website Development Course</h1>
+            <p class="subtitle">Learn to build beautiful and responsive websites</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="course-content">
+            <div class="main-content">
+                <div class="course-description">
+                    <h2>About This Course</h2>
+                    <p>Welcome to our comprehensive website development course! This course is designed to take you from absolute beginner to confident web developer. You'll learn everything from basic HTML structure to advanced CSS techniques.</p>
+                    
+                    <div class="prerequisites">
+                        <h3>Prerequisites</h3>
+                        <p>No prior programming experience required! This course starts from the very basics and builds up gradually.</p>
+                    </div>
+
+                    <h2>What You'll Learn</h2>
+                    <ul>
+                        <li>HTML fundamentals and best practices</li>
+                        <li>CSS styling and layout techniques</li>
+                        <li>Responsive design principles</li>
+                        <li>Modern web development tools</li>
+                        <li>Best practices for clean, maintainable code</li>
+                    </ul>
+                </div>
+
+                <div class="chapter-list">
+                    <div class="chapter-item">
+                        <h3>Chapter 1: HTML Basics</h3>
+                        <p>Learn the fundamentals of HTML, including elements, attributes, and basic structure.</p>
+                        <a href="ch1_basics.html" class="btn">Start Chapter 1</a>
+                    </div>
+
+                    <div class="chapter-item">
+                        <h3>Chapter 2: CSS Layout</h3>
+                        <p>Master CSS layout techniques including Flexbox and Grid systems.</p>
+                        <a href="ch2_layout.html" class="btn">Start Chapter 2</a>
+                    </div>
+
+                    <div class="chapter-item">
+                        <h3>Chapter 3: Advanced CSS</h3>
+                        <p>Dive deep into advanced CSS concepts and modern styling techniques.</p>
+                        <a href="ch3_advanced_css.html" class="btn">Start Chapter 3</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="code-editor-card">
+                    <h3>Practice Your Skills</h3>
+                    <p>Use our interactive code editor to practice what you've learned and experiment with your own code.</p>
+                    <a href="../../../code_editor/sandbox.html" class="btn btn-outline">Open Code Editor</a>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h3>Course Resources</h3>
+                    <ul>
+                        <li>Download course materials</li>
+                        <li>Access code examples</li>
+                        <li>View additional resources</li>
+                        <li>Get help and support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
