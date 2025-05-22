@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhode To Dublin - Irish and American Traditional Music based in Newport, RI, USA - Introduction</title>
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
+    <style>
+        body {
+            background-color: #009966;
+            color: #FFFFFF;
+        }
+        a {
+            color: #FFFFFF;
+        }
+        a:visited {
+            color: #FFFFFF;
+        }
+        a:active {
+            color: #FFFFFF;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px; /* Add space for the header */
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .contact-info {
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .main-home-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #00b380;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .main-home-button:hover {
+            background-color: #00664d;
+        }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import { createHeader } from '/rhode_to_dublin/js/header.js';
+        import initCircularText from '/rhode_to_dublin/js/circularText.js';
+        import { initializePage } from '/rhode_to_dublin/js/init.js';
+
+        // Initialize components
+        try {
+            // Create header first
+            createHeader();
+
+            // Initialize other components
+            initCircularText();
+            initializePage();
+        } catch (error) {
+            console.error('Error initializing page:', error);
+        }
+    </script>
+
+    <div class="content">
+        <div id="outerCircleText"></div>
+
+        <a href="/index.html" class="main-home-button">Main Home</a>
+
+        <h2>Rhode To Dublin<br>Irish and American Traditional Music<br>based in Newport, RI, USA</h2>
+
+        <p>
+            We play toe-tapping music for all ages that is both ancient and new. We play for all types of events in
+            all types of venues. Whether it's a party, a wedding ceremony, cocktail party, or reception, 
+            we can provide the traditional musical atmosphere you are looking for!
+            If you're looking for fun, family-friendly music that will enliven any gathering, look no further!!
+        </p>
+
+        <p class="contact-info">
+            CALL 401-871-3610 or SEND EMAIL TO: <a href="mailto:banjohopper@gmail.com">banjohopper@gmail.com</a> for inquiries.
+        </p>
+
+        <div class="image-container">
+            <img src="/images/logo2.png" alt="Rhode To Dublin Logo" width="375" height="280">
+        </div>
+
+        <div class="image-container">
+            <img src="/images/iri.jpg" alt="Irish Music">
+        </div>
+    </div>
+</body>
+</html>

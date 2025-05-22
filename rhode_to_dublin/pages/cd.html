@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Something Old Something New - New CD August 2010</title>
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
+    <style>
+        body {
+            background-color: #2233aa;
+            color: #FFFFFF;
+        }
+        a {
+            color: #aabbcc;
+        }
+        a:visited {
+            color: #000000;
+        }
+        a:active {
+            color: #000000;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .cd-info {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .contact-info {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import { createHeader } from '/rhode_to_dublin/js/header.js';
+        import initCircularText from '/rhode_to_dublin/js/circularText.js';
+        import { initializePage } from '/rhode_to_dublin/js/init.js';
+
+        // Initialize components
+        try {
+            // Create header first
+            createHeader();
+
+            // Initialize other components
+            initCircularText();
+            initializePage();
+        } catch (error) {
+            console.error('Error initializing page:', error);
+        }
+    </script>
+
+    <div class="content">
+        <div id="outerCircleText"></div>
+
+        <a href="/index.html" class="main-home-button">Main Home</a>
+
+        <h2>Something Old Something New</h2>
+
+        <div class="cd-info">
+            <p>News from August 2010</p>
+
+            <p>
+                Timmy May has recorded a CD entitled "Something Old Something New" with original and traditional tunes and songs. 
+                8 of the 13 tracks on the CD are original tunes paired with traditional tunes. 
+                The music was performed and recorded by Timmy on the guitar, banjo, and mandolin.
+            </p>
+        </div>
+
+        <div class="image-container">
+            <img src="/images/3instruments.jpg" alt="Timmy May's Instruments">
+        </div>
+
+        <div class="contact-info">
+            <p>
+                Send a message to: <a href="mailto:banjohopper@gmail.com">banjohopper@gmail.com</a> 
+                for more information as to how to get this CD.
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

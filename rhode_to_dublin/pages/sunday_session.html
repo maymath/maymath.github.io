@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join us every Sunday for traditional Irish music at the Fastnet Pub in Newport, RI">
+    <title>Rhode To Dublin - Sunday Session at Fastnet Pub</title>
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
+    <link rel="preload" href="/images/fastnetpainting.png" as="image">
+    <link rel="preload" href="/images/session-march-2009.jpg" as="image">
+    <style>
+        body {
+            background-color: #009966;
+            color: #FFFFFF;
+        }
+        a {
+            color: #FFFFFF;
+        }
+        a:visited {
+            color: #FFFFFF;
+        }
+        a:active {
+            color: #FFFFFF;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        h2, h3 {
+            margin: 20px 0;
+        }
+        .session-info {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <main class="content">
+        <div id="outerCircleText" aria-hidden="true"></div>
+
+        <h1>Sunday Session at the Fastnet Pub</h1>
+
+        <section class="session-info">
+            <p>
+                Every Sunday from 4:00 PM to 7:00 PM, we gather at the Fastnet Pub in Newport, RI for a traditional Irish music session.
+                All musicians are welcome to join in and play along. The session is open to all levels of experience.
+            </p>
+
+            <figure class="image-container">
+                <img src="/images/fastnetpainting.png" alt="Fastnet Pub exterior" width="375" height="280" loading="lazy">
+                <figcaption>The Fastnet Pub in Newport, RI</figcaption>
+            </figure>
+
+            <p>
+                The Fastnet Pub is located at <address>1 Broadway, Newport, RI 02840</address><br>
+                For more information about the pub, visit their website: <a href="https://www.fastnetpub.com" target="_blank" rel="noopener noreferrer">www.fastnetpub.com</a>
+            </p>
+
+            <figure class="image-container">
+                <img src="/images/session-march-2009.jpg" alt="Traditional Irish music session in progress" width="375" height="280" loading="lazy">
+                <figcaption>A typical Sunday session at the Fastnet Pub</figcaption>
+            </figure>
+
+            <p>
+                Newport, Rhode Island has a rich history of Irish immigration and cultural influence.
+                The Fastnet Pub is named after the Fastnet Rock, a small island off the coast of Ireland.
+                The pub serves traditional Irish food and drink, and hosts live music throughout the week.
+            </p>
+        </section>
+    </main>
+
+    <script type="module">
+        import initCircularText from '/rhode_to_dublin/js/circularText.js';
+        import { createHeader } from '/rhode_to_dublin/js/header.js';
+        import { initializePage } from '/rhode_to_dublin/js/init.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCircularText();
+            createHeader();
+            initializePage();
+        });
+    </script>
+</body>
+</html> 

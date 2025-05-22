@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Coast Rovers - Newport, RI - Links to Cool Web Sites</title>
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
+    <style>
+        body {
+            background-color: #009966;
+            color: #FFFFFF;
+        }
+        a {
+            color: #FFFFFF;
+        }
+        a:visited {
+            color: #FFFFFF;
+        }
+        a:active {
+            color: #FFFFFF;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .links-section {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import { createHeader } from '/rhode_to_dublin/js/header.js';
+        import initCircularText from '/rhode_to_dublin/js/circularText.js';
+        import { initializePage } from '/rhode_to_dublin/js/init.js';
+
+        // Initialize components
+        try {
+            // Create header first
+            createHeader();
+
+            // Initialize other components
+            initCircularText();
+            initializePage();
+        } catch (error) {
+            console.error('Error initializing page:', error);
+        }
+    </script>
+
+    <div class="content">
+        <div id="outerCircleText"></div>
+
+        <a href="/index.html" class="main-home-button">Main Home</a>
+
+        <h2>Check these sites out!</h2>
+
+        <div class="links-section">
+            <p>
+                The <a href="http://www.thesession.org" target="_blank">session</a>
+                is one of my favorites.
+            </p>
+
+            <p>
+                <a href="http://comhaltas.ie" target="_blank">Comhaltas</a>
+                is a place to learn about Irish music and culture in every possible way.
+            </p>
+
+            <p>
+                Have a listen to Timmy May's <a href="http://www.youtube.com/user/banjomando" target="_blank">YouTube channel</a>.
+            </p>
+
+            <p>
+                Would you like a free college education?
+                <a href="https://www.oeglobal.org/" target="_blank">This site</a>
+                has links to every university in the world that offers free online courses.
+            </p>
+        </div>
+
+        <div class="image-container">
+            <img src="/images/musicians.jpg" alt="Irish Musicians">
+        </div>
+
+        <div class="links-section">
+            <p>
+                The designer and musician for this website is Timmy May.
+            </p>
+
+            <p>
+                This website is part of a larger website,<br>
+                <a href="https://rhodetodublin.neocities.org/index.htm" target="_blank">Harry's Paintings Web Museum</a>,
+                that shows off my grandfather's artwork.
+            </p>
+
+            <p>
+                Click to see <a href="visitors.html" target="_blank">some famous people</a>
+                that have visited the pub.
+            </p>
+
+            <p>
+                By the way, <a href="http://www.dynamicdrive.com" target="_blank">Dynamic Drive</a>
+                has cool FREE javascripts that I customized in order to jazz up this website.
+            </p>
+        </div>
+    </div>
+</body>
+</html> 
