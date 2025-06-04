@@ -1,33 +1,53 @@
-// Header configuration
-const headerConfig = {
+// Configuration for the taskbar
+const taskbarConfig = {
     links: [
-        { href: '/index.html', text: 'Main Home' },
-        { href: 'homepage.html', text: 'Home' },
-        { href: 'about.html', text: 'Who..' },
-        { href: 'sunday_session.html', text: 'Sunday session at Fastnet Pub' },
-        { href: 'links.html', text: 'Musical and Other Links' },
-        { href: 'visitors.html', text: 'Interesting Visitors to the Fastnet Session' },
-        { href: 'cd.html', text: 'Something Old Something New<br>New CD Music Album Information<br>August 2010' }
+        { text: 'Home', href: 'homepage.html' },
+        { text: 'Who', href: 'who.html' },
+        { text: 'Sunday Session', href: 'sunday_session.html' },
+        { text: 'Visitors', href: 'visitors.html' },
+        { text: 'Links', href: 'links.html' },
+        { text: 'Something Old Something New', href: 'cd.html' }
     ]
 };
 
-export const createHeader = () => {
-    console.log('Creating header...');
-    const header = document.createElement('div');
-    header.className = 'header';
+// Create and insert the taskbar
+function createTaskbar() {
+    console.log('Creating taskbar...');
     
-    headerConfig.links.forEach(link => {
+    // Create taskbar container
+    const taskbar = document.createElement('div');
+    taskbar.className = 'taskbar';
+    
+    // Create taskbar container for width transition
+    const taskbarContainer = document.createElement('div');
+    taskbarContainer.className = 'taskbar-container';
+    
+    // Create taskbar content
+    const taskbarContent = document.createElement('div');
+    taskbarContent.className = 'taskbar-content';
+    
+    // Add logo/icon
+    const taskbarIcon = document.createElement('div');
+    taskbarIcon.className = 'taskbar-icon';
+    taskbarIcon.innerHTML = '🎵'; // Music note icon
+    taskbarContent.appendChild(taskbarIcon);
+    
+    // Add links
+    taskbarConfig.links.forEach(link => {
         const a = document.createElement('a');
         a.href = link.href;
-        a.innerHTML = link.text;
-        header.appendChild(a);
+        a.textContent = link.text;
+        taskbarContent.appendChild(a);
     });
     
-    // Try to insert at the very beginning of the body
-    if (document.body) {
-        document.body.insertBefore(header, document.body.firstChild);
-        console.log('Header inserted into body');
-    } else {
-        console.error('Body not found when trying to insert header');
-    }
-}; 
+    // Assemble taskbar
+    taskbarContainer.appendChild(taskbarContent);
+    taskbar.appendChild(taskbarContainer);
+    
+    // Insert at the beginning of body
+    document.body.insertBefore(taskbar, document.body.firstChild);
+    console.log('Taskbar inserted into body');
+}
+
+// Initialize taskbar when DOM is loaded
+document.addEventListener('DOMContentLoaded', createTaskbar); 

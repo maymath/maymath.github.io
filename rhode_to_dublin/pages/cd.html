@@ -7,54 +7,141 @@
     <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
     <style>
         body {
-            background-color: #2233aa;
+            background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 30s ease infinite;
+            position: relative;
             color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes gradientBG {
+            0% { 
+                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
+            }
+            25% { 
+                background: linear-gradient(135deg, #006644 0%, #004433 50%, #003366 100%);
+            }
+            50% { 
+                background: linear-gradient(135deg, #004433 0%, #003366 50%, #002244 100%);
+            }
+            75% { 
+                background: linear-gradient(135deg, #003366 0%, #002244 50%, #004433 100%);
+            }
+            100% { 
+                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
+            }
         }
         a {
             color: #aabbcc;
+            transition: all 0.3s ease;
         }
         a:visited {
-            color: #000000;
+            color: #aabbcc;
         }
         a:active {
-            color: #000000;
+            color: #aabbcc;
+        }
+        a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
         .content {
             text-align: center;
             padding: 20px;
-            margin-top: 80px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         .image-container {
             margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         .image-container img {
             max-width: 100%;
             height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.02);
         }
         .cd-info {
             margin: 20px 0;
             line-height: 1.6;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cd-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         .contact-info {
             margin: 20px 0;
             font-weight: bold;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
 <body>
     <script type="module">
-        import { createHeader } from '/rhode_to_dublin/js/header.js';
+        import '/rhode_to_dublin/js/header.js';
         import initCircularText from '/rhode_to_dublin/js/circularText.js';
         import { initializePage } from '/rhode_to_dublin/js/init.js';
+        import { initializeLightbox } from '/rhode_to_dublin/js/lightbox.js';
 
         // Initialize components
         try {
-            // Create header first
-            createHeader();
-
-            // Initialize other components
-            initCircularText();
+            initCircularText("Something Old Something New");
             initializePage();
+            initializeLightbox();
         } catch (error) {
             console.error('Error initializing page:', error);
         }
@@ -62,8 +149,6 @@
 
     <div class="content">
         <div id="outerCircleText"></div>
-
-        <a href="/index.html" class="main-home-button">Main Home</a>
 
         <h2>Something Old Something New</h2>
 

@@ -5,6 +5,8 @@
     --text-color: #FFFFFF;
     --header-bg: #008055;
     --transition-speed: 0.3s;
+    --taskbar-width: 250px;
+    --taskbar-collapsed-width: 60px;
 }
 
 * {
@@ -18,7 +20,8 @@ body {
     color: var(--text-color);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    padding-top: 60px; /* Add padding for fixed header */
+    padding-left: var(--taskbar-collapsed-width); /* Add padding for taskbar */
+    transition: padding-left var(--transition-speed) ease;
 }
 
 a {
@@ -53,7 +56,7 @@ a:active {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 3000;
+    z-index: 1000;
     cursor: default;
 }
 
@@ -97,6 +100,60 @@ a:active {
     transform: translateY(-2px);
 }
 
+/* Taskbar Styles */
+.taskbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 3000;
+    background-color: var(--header-bg);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.taskbar-container {
+    width: var(--taskbar-collapsed-width);
+    height: 100%;
+    transition: width var(--transition-speed) ease;
+    overflow: hidden;
+}
+
+.taskbar:hover .taskbar-container {
+    width: var(--taskbar-width);
+}
+
+.taskbar-content {
+    width: var(--taskbar-width);
+    height: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.taskbar-icon {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.taskbar-content a {
+    width: 100%;
+    padding: 12px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color var(--transition-speed) ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taskbar-content a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 /* Content styles */
 .content {
     max-width: 1200px;
@@ -130,4 +187,36 @@ a:active {
         margin-top: 10rem;
         padding: 1rem;
     }
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.lightbox-content img {
+    width: 80vw;
+    height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    z-index: 10001;
 } 

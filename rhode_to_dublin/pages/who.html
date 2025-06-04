@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhode To Dublin - Links</title>
+    <title>Rhode To Dublin - Who</title>
     <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
     <style>
         body {
@@ -49,7 +49,7 @@
         a {
             color: #FFFFFF;
             text-decoration: underline;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
         a:visited {
             color: #FFFFFF;
@@ -61,15 +61,12 @@
         }
         a:hover {
             color: #E0E0E0;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
         .content {
             text-align: center;
             padding: 40px 20px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
         h2 {
             font-size: 2em;
@@ -77,52 +74,46 @@
             color: #FFFFFF;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        .link-section {
+        .section {
             margin: 30px 0;
             padding: 20px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
-        .link-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .link-section p {
+        .section p {
             margin: 15px 0;
             font-size: 1.1em;
+            text-align: left;
+            flex: 1;
         }
         .image-container {
-            margin: 40px 0;
+            flex: 1;
             padding: 20px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .image-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            min-width: 300px;
         }
         .image-container img {
             max-width: 100%;
             height: auto;
             border-radius: 4px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
         }
-        .image-container img:hover {
-            transform: scale(1.02);
+        .contact-info {
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 1.1em;
         }
-        .credits {
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #E0E0E0;
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .image-container {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -135,7 +126,7 @@
 
         // Initialize components
         try {
-            initCircularText("Links");
+            initCircularText("Who");
             initializePage();
             initializeLightbox();
         } catch (error) {
@@ -146,41 +137,27 @@
     <div class="content">
         <div id="outerCircleText"></div>
 
-        <h2>Check these sites out!</h2>
+        <h2>Who We Are</h2>
 
-        <div class="link-section">
+        <div class="section">
             <p>
-                The <a href="http://www.thesession.org" target="_blank">session</a> is one of my favorites.
+                Rhode To Dublin is a traditional Irish music group based in Newport, Rhode Island. We play a mix of traditional Irish tunes and songs, as well as some contemporary pieces that fit our style.
             </p>
+            <div class="image-container">
+                <img src="/images/logo2.png" alt="Rhode To Dublin Logo">
+            </div>
+        </div>
 
+        <div class="section">
             <p>
-                <a href="http://comhaltas.ie" target="_blank">Comhaltas</a> is a place to learn about Irish music and culture in every possible way.
-            </p>
-
-            <p>
-                Have a listen to Timmy May's <a href="http://www.youtube.com/user/banjomando" target="_blank">YouTube channel</a>.
-            </p>
-
-            <p>
-                Would you like a free college education? <a href="https://www.oeglobal.org/" target="_blank">This site</a> has links to every university in the world that offers free online courses.
+                Our group includes musicians who play various instruments including fiddle, guitar, banjo, mandolin, and bodhran. We welcome musicians of all skill levels to join us at our weekly sessions.
             </p>
         </div>
 
-        <div class="image-container">
-            <img src="/images/musicians.jpg" alt="Musicians">
-        </div>
-
-        <div class="link-section">
-            <p>
-                The designer and musician for this website is Timmy May.
-            </p>
-
-            <p>
-                This website is part of a larger website, <a href="https://rhodetodublin.neocities.org/index.htm" target="_blank">Harry's Paintings Web Museum</a>, that shows off my grandfather's artwork.
-            </p>
-
-            <p>
-                Click to see <a href="visitors.html" target="_blank">some famous people</a> that have visited the pub.
+        <div class="section">
+            <p class="contact-info">
+                For more information about our group or to book us for an event, please contact:<br>
+                <a href="mailto:banjohopper@gmail.com">banjohopper@gmail.com</a>
             </p>
         </div>
     </div>
