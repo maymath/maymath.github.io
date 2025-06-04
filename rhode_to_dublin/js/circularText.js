@@ -83,7 +83,7 @@ const initCircularText = (message = "Rhode To Dublin") => {
     const drag = () => {
         // Update main text positions
         y[0] = Y[0] += (ymouse - Y[0]) * circularTextConfig.speed;
-        x[0] = X[0] += (xmouse - 20 - X[0]) * circularTextConfig.speed;
+        x[0] = X[0] += (xmouse - X[0]) * circularTextConfig.speed;
         for (let i = msg.length - 1; i > 0; --i) {
             y[i] = Y[i] += (y[i-1] - Y[i]) * circularTextConfig.speed;
             x[i] = X[i] += (x[i-1] - X[i]) * circularTextConfig.speed;
@@ -93,8 +93,8 @@ const initCircularText = (message = "Rhode To Dublin") => {
     };
 
     const mouse = (e) => {
-        ymouse = !isNaN(e.pageY) ? e.pageY : e.clientY;
-        xmouse = !isNaN(e.pageX) ? e.pageX : e.clientX;
+        ymouse = e.clientY;
+        xmouse = e.clientX;
     };
 
     document.addEventListener('mousemove', mouse);

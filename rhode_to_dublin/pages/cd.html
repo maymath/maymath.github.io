@@ -3,132 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Something Old Something New - New CD August 2010</title>
+    <title>Rhode To Dublin - Something Old Something New</title>
     <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 30s ease infinite;
-            position: relative;
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes gradientBG {
-            0% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-            25% { 
-                background: linear-gradient(135deg, #006644 0%, #004433 50%, #003366 100%);
-            }
-            50% { 
-                background: linear-gradient(135deg, #004433 0%, #003366 50%, #002244 100%);
-            }
-            75% { 
-                background: linear-gradient(135deg, #003366 0%, #002244 50%, #004433 100%);
-            }
-            100% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-        }
-        a {
-            color: #aabbcc;
-            transition: all 0.3s ease;
-        }
-        a:visited {
-            color: #aabbcc;
-        }
-        a:active {
-            color: #aabbcc;
-        }
-        a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
-        .content {
-            text-align: center;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .image-container {
-            margin: 20px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .image-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-        .image-container img:hover {
-            transform: scale(1.02);
-        }
-        .cd-info {
-            margin: 20px 0;
-            line-height: 1.6;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .cd-info:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .contact-info {
-            margin: 20px 0;
-            font-weight: bold;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .contact-info:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-    </style>
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/page-styles.css">
 </head>
 <body>
     <script type="module">
@@ -139,7 +16,7 @@
 
         // Initialize components
         try {
-            initCircularText("Something Old Something New");
+            initCircularText("Something Old\nSomething New");
             initializePage();
             initializeLightbox();
         } catch (error) {
@@ -152,25 +29,14 @@
 
         <h2>Something Old Something New</h2>
 
-        <div class="cd-info">
-            <p>News from August 2010</p>
-
+        <div class="section cd-intro">
             <p>
-                Timmy May has recorded a CD entitled "Something Old Something New" with original and traditional tunes and songs. 
-                8 of the 13 tracks on the CD are original tunes paired with traditional tunes. 
-                The music was performed and recorded by Timmy on the guitar, banjo, and mandolin.
+                Our CD "Something Old Something New" features a mix of traditional Irish tunes and original compositions.
+                The album showcases our unique blend of traditional and contemporary Irish music.
             </p>
-        </div>
-
-        <div class="image-container">
-            <img src="/images/3instruments.jpg" alt="Timmy May's Instruments">
-        </div>
-
-        <div class="contact-info">
-            <p>
-                Send a message to: <a href="mailto:banjohopper@gmail.com">banjohopper@gmail.com</a> 
-                for more information as to how to get this CD.
-            </p>
+            <div class="image-container">
+                <img src="/images/3instruments.jpg" alt="CD Cover">
+            </div>
         </div>
     </div>
 </body>

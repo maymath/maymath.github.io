@@ -5,8 +5,6 @@
     --text-color: #FFFFFF;
     --header-bg: #008055;
     --transition-speed: 0.3s;
-    --taskbar-width: 250px;
-    --taskbar-collapsed-width: 60px;
 }
 
 * {
@@ -20,7 +18,7 @@ body {
     color: var(--text-color);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    padding-left: var(--taskbar-collapsed-width); /* Add padding for taskbar */
+    padding-left: 250px;
     transition: padding-left var(--transition-speed) ease;
 }
 
@@ -106,47 +104,38 @@ a:active {
     left: 0;
     top: 0;
     height: 100vh;
+    width: 250px;
     z-index: 3000;
     background-color: var(--header-bg);
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
 }
 
-.taskbar-container {
-    width: var(--taskbar-collapsed-width);
-    height: 100%;
-    transition: width var(--transition-speed) ease;
-    overflow: hidden;
-}
-
-.taskbar:hover .taskbar-container {
-    width: var(--taskbar-width);
-}
-
 .taskbar-content {
-    width: var(--taskbar-width);
+    width: 100%;
     height: 100%;
-    padding: 20px 0;
+    padding: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .taskbar-icon {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 30px;
     color: var(--text-color);
 }
 
 .taskbar-content a {
     width: 100%;
-    padding: 12px 20px;
+    padding: 15px 25px;
     color: var(--text-color);
     text-decoration: none;
-    transition: background-color var(--transition-speed) ease;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 1.1em;
+    line-height: 1.4;
 }
 
 .taskbar-content a:hover {
@@ -219,4 +208,190 @@ a:active {
     object-fit: contain;
     border-radius: 4px;
     z-index: 10001;
+}
+
+/* --- WHO PAGE & SIMILAR --- */
+.band-photo {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.photo-caption {
+    font-size: 2.2em;
+    line-height: 1.6;
+    margin: 15px 0 30px;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.performance {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.performance p {
+    font-size: 2.1em;
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
+.contact-info {
+    font-size: 2.2em;
+    line-height: 1.6;
+    font-weight: 500;
+    margin: 25px 0;
+    color: #FFFFFF;
+    padding: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.intro {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro h3 {
+    font-size: 3em;
+    margin-bottom: 1.2em;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.intro p {
+    font-size: 2.1em;
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+}
+
+/* --- CD PAGE --- */
+.cd-info {
+    font-size: 2.2em;
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cd-info h3 {
+    font-size: 3em;
+    margin-bottom: 1em;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* --- LINKS PAGE --- */
+.link-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.link-item h3 {
+    font-size: 3em;
+    margin-bottom: 1em;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.link-item p {
+    font-size: 2.1em;
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
+/* --- SUNDAY SESSION PAGE --- */
+.session-info {
+    font-size: 2.2em;
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.session-info h3 {
+    font-size: 3em;
+    margin-bottom: 1em;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* --- VISITORS PAGE --- */
+.visitor-info {
+    font-size: 2.2em;
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.visitor-info h3 {
+    font-size: 3em;
+    margin-bottom: 1em;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* --- TASKBAR --- */
+.taskbar a {
+    font-size: 2em;
+    line-height: 1.4;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.3px;
+}
+
+/* --- TEXT STYLES --- */
+p {
+    font-size: 2.2em;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1em;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 4em;
+    line-height: 1.3;
+    margin-bottom: 1.2em;
+}
+
+h2 {
+    font-size: 3.5em;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 3em;
+    line-height: 1.5;
+    margin-bottom: 0.8em;
 } 

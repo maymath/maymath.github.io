@@ -6,119 +6,9 @@
     <meta name="description" content="Join us every Sunday for traditional Irish music at the Fastnet Pub in Newport, RI">
     <title>Rhode To Dublin - Sunday Session</title>
     <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/page-styles.css">
     <link rel="preload" href="/images/fastnetpainting.png" as="image">
     <link rel="preload" href="/images/session-march-2009.jpg" as="image">
-    <style>
-        body {
-            background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 30s ease infinite;
-            position: relative;
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes gradientBG {
-            0% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-            25% { 
-                background: linear-gradient(135deg, #006644 0%, #004433 50%, #003366 100%);
-            }
-            50% { 
-                background: linear-gradient(135deg, #004433 0%, #003366 50%, #002244 100%);
-            }
-            75% { 
-                background: linear-gradient(135deg, #003366 0%, #002244 50%, #004433 100%);
-            }
-            100% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-        }
-        a {
-            color: #FFFFFF;
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-        a:visited {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        a:active {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        a:hover {
-            color: #E0E0E0;
-        }
-        .content {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .section {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        .section p {
-            margin: 15px 0;
-            font-size: 1.1em;
-            text-align: left;
-            flex: 1;
-        }
-        .image-container {
-            flex: 1;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            min-width: 300px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .contact-info {
-            font-weight: bold;
-            margin: 20px 0;
-            font-size: 1.1em;
-        }
-        @media (max-width: 768px) {
-            .section {
-                flex-direction: column;
-            }
-            .image-container {
-                min-width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
     <script type="module">
@@ -129,7 +19,7 @@
 
         // Initialize components
         try {
-            initCircularText("Fastnet Pub Sunday Session");
+            initCircularText("Fastnet Pub\nSunday Session");
             initializePage();
             initializeLightbox();
         } catch (error) {
@@ -142,7 +32,7 @@
 
         <h2>The Sunday Irish Music Session at the Fastnet Pub in Newport, RI</h2>
 
-        <div class="section">
+        <div class="section session-intro">
             <div>
                 <p class="contact-info">
                     Call The Fastnet Pub in Newport, RI to find out more information: 401-845-9311 or send a message to: <a href="mailto:banjohopper@gmail.com">banjohopper@gmail.com</a>
@@ -156,7 +46,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section session-details">
             <p>
                 Below: "The Fastnet Pub Sunday Irish Session Musicians". This painting was created in 2019 by William Heydt.
             </p>
@@ -165,7 +55,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section session-details">
             <p>
                 This is a vintage photo from 2009 at the Fastnet Pub in Newport. 2 of the musicians have passed away and we hope to see them someday on Fiddler's Green. They are Tom Maguire, and Fud Benson, the first 2 you see from left to right.
                 The rest of us are still here playing away, now 18 years strong on Sunday nights at the Fastnet Pub in Newport.
@@ -175,7 +65,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section session-details">
             <p>
                 Here is a <a href="http://www.youtube.com/watch?v=6rDRQ14JhXs" target="_blank">video</a> about the Fastnet pub.<br>
                 <a href="http://www.thefastnetpub.com" target="_blank">Visit</a> the pub.
@@ -185,7 +75,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section session-details">
             <p>
                 Newport is on Aquidneck Island, which is surrounded by the Atlantic Ocean and Narragansett Bay. It is a colonial city with much of the original architecture from the past 300+ years still standing. Step back in time when you visit.
             </p>
@@ -194,7 +84,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section session-details">
             <p>
                 Here's a page with some useful links related to Irish <a href="links.html">music</a>.
             </p>

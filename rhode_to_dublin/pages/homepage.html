@@ -5,112 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhode To Dublin - Home</title>
     <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 30s ease infinite;
-            position: relative;
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes gradientBG {
-            0% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-            25% { 
-                background: linear-gradient(135deg, #006644 0%, #004433 50%, #003366 100%);
-            }
-            50% { 
-                background: linear-gradient(135deg, #004433 0%, #003366 50%, #002244 100%);
-            }
-            75% { 
-                background: linear-gradient(135deg, #003366 0%, #002244 50%, #004433 100%);
-            }
-            100% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-        }
-        a {
-            color: #FFFFFF;
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-        a:visited {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        a:active {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        a:hover {
-            color: #E0E0E0;
-        }
-        .content {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .section {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        .section p {
-            margin: 15px 0;
-            font-size: 1.1em;
-            text-align: left;
-            flex: 1;
-        }
-        .image-container {
-            flex: 1;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            min-width: 300px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        @media (max-width: 768px) {
-            .section {
-                flex-direction: column;
-            }
-            .image-container {
-                min-width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/rhode_to_dublin/styles/page-styles.css">
 </head>
 <body>
     <script type="module">
@@ -121,7 +16,7 @@
 
         // Initialize components
         try {
-            initCircularText("Rhode To Dublin - Home");
+            initCircularText("Rhode To\nDublin - Home");
             initializePage();
             initializeLightbox();
         } catch (error) {
@@ -134,7 +29,7 @@
 
         <h2>Welcome to Rhode To Dublin</h2>
 
-        <div class="section">
+        <div class="section homepage-intro">
             <p>
                 Welcome to our website! We are a traditional Irish music group based in Newport, Rhode Island.
             </p>
@@ -143,21 +38,23 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section homepage-section">
             <p>
-                Join us every Sunday from 4-7 PM at the Fastnet Pub in Newport, RI for our weekly traditional Irish music session.
-                All musicians are welcome to join in, regardless of skill level!
+                We play toe-tapping music for all ages that is both ancient and new.
+                We play for all types of events in all types of venues. Whether it's a party, a wedding ceremony, cocktail party, or reception,
+                we can provide the traditional musical atmosphere you are looking for! 
+                If you're looking for fun, family-friendly music that will enliven any gathering,
+                 look no further!!
             </p>
-            <div class="image-container">
-                <img src="/images/session-march-2009.jpg" alt="Traditional Irish music session in progress">
-            </div>
+        </div>
+        
+        <div class="image-container">
+            <img src="/images/session-march-2009.jpg" alt="Traditional Irish music session in progress">
         </div>
 
-        <div class="section">
+        <div class="section homepage-section">
             <p>
-                Newport, Rhode Island has a rich history of Irish immigration and cultural influence.
-                The Fastnet Pub is named after the Fastnet Rock, a small island off the coast of Ireland.
-                The pub serves traditional Irish food and drink, and hosts live music throughout the week.
+                CALL 401-871-3610 or SEND EMAIL TO: banjohopper@gmail.com for inquiries.
             </p>
         </div>
     </div>

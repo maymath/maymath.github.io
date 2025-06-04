@@ -5,117 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhode To Dublin - Who</title>
     <link rel="stylesheet" href="/rhode_to_dublin/styles/styles.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 30s ease infinite;
-            position: relative;
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes gradientBG {
-            0% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-            25% { 
-                background: linear-gradient(135deg, #006644 0%, #004433 50%, #003366 100%);
-            }
-            50% { 
-                background: linear-gradient(135deg, #004433 0%, #003366 50%, #002244 100%);
-            }
-            75% { 
-                background: linear-gradient(135deg, #003366 0%, #002244 50%, #004433 100%);
-            }
-            100% { 
-                background: linear-gradient(135deg, #009966 0%, #006644 50%, #004433 100%);
-            }
-        }
-        a {
-            color: #FFFFFF;
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-        a:visited {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        a:active {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        a:hover {
-            color: #E0E0E0;
-        }
-        .content {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .section {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        .section p {
-            margin: 15px 0;
-            font-size: 1.1em;
-            text-align: left;
-            flex: 1;
-        }
-        .image-container {
-            flex: 1;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            min-width: 300px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .contact-info {
-            font-weight: bold;
-            margin: 20px 0;
-            font-size: 1.1em;
-        }
-        @media (max-width: 768px) {
-            .section {
-                flex-direction: column;
-            }
-            .image-container {
-                min-width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
     <script type="module">
@@ -126,7 +15,7 @@
 
         // Initialize components
         try {
-            initCircularText("Who");
+            initCircularText("Rhode To\nDublin - Who");
             initializePage();
             initializeLightbox();
         } catch (error) {
@@ -134,32 +23,65 @@
         }
     </script>
 
+    <div id="outerCircleText"></div>
+
     <div class="content">
-        <div id="outerCircleText"></div>
+        <h2>Introducing the musicians...</h2>
 
-        <h2>Who We Are</h2>
-
-        <div class="section">
-            <p>
-                Rhode To Dublin is a traditional Irish music group based in Newport, Rhode Island. We play a mix of traditional Irish tunes and songs, as well as some contemporary pieces that fit our style.
-            </p>
-            <div class="image-container">
-                <img src="/images/logo2.png" alt="Rhode To Dublin Logo">
+        <section class="intro">
+            <h3>Rhode to Dublin is a revolving cast of musicians.</h3>
+            <p>Timmy May is the founder and manager of the band and also the creator of this website.
+            Rhode to Dublin always includes a variety of fine musicians and singers who play violin, uilleann pipes, whistle, accordeon, guitar, banjo, mandolin, and other instruments.
+            In the photos you can see different configurations of Rhode to Dublin.
+            The band is organized for different types of concerts and events and will customize a set list for any gathering. 
+            There is a common element of Irish/Celtic music in the sound.</p>
+            
+            <div class="contact-info">
+                CALL: 401-871-3610 or SEND EMAIL TO: banjohopper@gmail.com
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <p>
-                Our group includes musicians who play various instruments including fiddle, guitar, banjo, mandolin, and bodhran. We welcome musicians of all skill levels to join us at our weekly sessions.
-            </p>
-        </div>
+        <section class="performances">
+            <div class="performance">
+                <p class="photo-caption">Rhode To Dublin performed most recently at the Jane Pickens Theater in Newport, Rhode Island, USA on St. Patrick's Day, March 17th, 2025. This configuration of the band has, from left to right, Jamie Lawton on the violin, Timmy May on guitar, mandolin, and vocals, Patrick May on the guitar and mandolin, and Ryan Moran on the bass, bodhran, and vocals.</p>
+                <img src="/images/rtdjp2.png" alt="Jane Pickens Theater Performance" class="band-photo">
+            </div>
 
-        <div class="section">
-            <p class="contact-info">
-                For more information about our group or to book us for an event, please contact:<br>
-                <a href="mailto:banjohopper@gmail.com">banjohopper@gmail.com</a>
-            </p>
-        </div>
+            <div class="performance">
+                <p class="photo-caption">Rhode To Dublin also performed at the Broadway Street Fair, in Newport, Rhode Island, on Saturday, October 12, 2024. This configuration of the band has, from left to right, Debbie Spitznagel on whistle and bodhran, Jack Wright on melodeon, harmonica, whistle, violin, and vocals, Greg Jonic on uilleann pipes, Timmy May on guitar, mandolin, and vocals, and Patrick May on guitar and banjo.</p>
+                <img src="/images/broadwaystreetfair.jpg" alt="Broadway Street Fair Performance" class="band-photo">
+            </div>
+
+            <div class="performance">
+                <p class="photo-caption">Here we are at King Park in Newport for the Waterfront Music Festival with Jamie Lawton on the violin along with Jack Wright and Timmy May.</p>
+                <img src="/images/rtdkingpark.jpg" alt="King Park Performance" class="band-photo">
+            </div>
+
+            <div class="performance">
+                <p class="photo-caption">We love to perform at farmer's markets from time to time in Newport and Middletown.</p>
+                <img src="/images/rtdfarmermarket.jpg" alt="Farmer's Market Performance" class="band-photo">
+            </div>
+
+            <div class="performance">
+                <p class="photo-caption">This is the cover of the Newport Daily News on March 1, 2023.</p>
+                <img src="/images/newportdailynews.jpg" alt="Newport Daily News Cover" class="band-photo">
+            </div>
+
+            <div class="performance">
+                <p class="photo-caption">Rhode To Dublin performed at a reception for Mary McAleese, president of Ireland from 1997-2011, at Salve Regina University, on May 17, 2023.</p>
+                <img src="/images/rtdsalve.png" alt="Salve Regina Performance" class="band-photo">
+            </div>
+
+            <div class="performance">
+                <p class="photo-caption">Another configuration of Rhode to Dublin at Singing For Shelter at Channing Church in Newport, RI, in December 2022</p>
+                <img src="/images/sfs.jpg" alt="Singing For Shelter Performance" class="band-photo">
+            </div>
+
+            <div class="performance">
+                <p class="photo-caption">This was a fun concert done in collaboration with "Kevin Doyle and Roscommon Soles" for the Waterfront Music Festival at King's Park in Newport, RI, in September 2022. (Kevin is leading the dancing in front of the stage with his sister Maureen.)</p>
+                <img src="/images/rtd3.png" alt="Waterfront Music Festival Performance" class="band-photo">
+            </div>
+        </section>
     </div>
 </body>
 </html> 
