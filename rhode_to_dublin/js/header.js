@@ -1,11 +1,11 @@
 // Configuration for the taskbar
 const taskbarConfig = {
     links: [
-        { text: 'Home', href: 'homepage.html' },
-        { text: 'Who', href: 'who.html' },
-        { text: 'Sunday Session', href: 'sunday_session.html' },
-        { text: 'Visitors', href: 'visitors.html' },
-        { text: 'Links', href: 'links.html' },
+        { text: 'Rhode To Dublin', href: 'homepage.html' },
+        { text: 'Rhode To Dublin', href: 'who.html' },
+        { text: 'Fastnet Pub Sunday Session', href: 'sunday_session.html' },
+        { text: 'Fastnet Session Visitors', href: 'visitors.html' },
+        { text: 'Useful Links', href: 'links.html' },
         { text: 'Something Old\nSomething New', href: 'cd.html' }
     ]
 };
