@@ -40,6 +40,14 @@ const headerStyles = `
     color: #FFFFFF;
 }
 
+.taskbar-image {
+    width: 80%;
+    max-width: 200px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .taskbar a {
     width: 100%;
     padding: 15px 10px;
@@ -66,6 +74,11 @@ const headerStyles = `
     body {
         padding-left: 180px;
     }
+    
+    .taskbar-image {
+        width: 90%;
+        max-width: 160px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -81,6 +94,11 @@ const headerStyles = `
         font-size: 1em;
         padding: 12px 8px;
     }
+    
+    .taskbar-image {
+        width: 90%;
+        max-width: 100px;
+    }
 }
 
 @media (max-width: 320px) {
@@ -90,6 +108,11 @@ const headerStyles = `
     
     body {
         padding-left: 100px;
+    }
+    
+    .taskbar-image {
+        width: 90%;
+        max-width: 80px;
     }
 }
 `;
@@ -129,19 +152,38 @@ function createTaskbar() {
     
     const taskbarIcon = document.createElement('div');
     taskbarIcon.className = 'taskbar-icon';
-    taskbarIcon.innerHTML = '🎵'; // Music note icon
+    taskbarIcon.innerHTML = '🎼'; // Music note icon
     taskbarContent.appendChild(taskbarIcon);
     
     const links = [
         { text: 'Home', href: '/rhode_to_dublin/pages/homepage.html' },
         { text: 'Who', href: '/rhode_to_dublin/pages/who.html' },
-        { text: 'Sunday Session', href: '/rhode_to_dublin/pages/sunday_session.html' },
-        { text: 'Visitors', href: '/rhode_to_dublin/pages/visitors.html' },
+        { text: 'Sunday Session at Fastnet Pub', href: '/rhode_to_dublin/pages/sunday_session.html' }
+    ];
+    
+    // Add first half of links
+    links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.textContent = link.text;
+        taskbarContent.appendChild(a);
+    });
+    
+    // Add image in the middle
+    const image = document.createElement('img');
+    image.src = '/images/block2.jpg';
+    image.alt = 'Rhode To Dublin';
+    image.className = 'taskbar-image';
+    taskbarContent.appendChild(image);
+    
+    // Add second half of links
+    const remainingLinks = [
+        { text: 'Interesting Visitors to the Fastnet Session', href: '/rhode_to_dublin/pages/visitors.html' },
         { text: 'Links', href: '/rhode_to_dublin/pages/links.html' },
         { text: 'Something Old\nSomething New', href: '/rhode_to_dublin/pages/cd.html' }
     ];
     
-    links.forEach(link => {
+    remainingLinks.forEach(link => {
         const a = document.createElement('a');
         a.href = link.href;
         a.textContent = link.text;
