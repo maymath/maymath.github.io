@@ -1,11 +1,11 @@
 // Circular text animation configuration
 const circularTextConfig = {
-    size: 50,
+    size: 20,
     circleY: 0.75,
     circleX: 2,
     letter_spacing: 5,
     diameter: 10,
-    rotation: 0.15,
+    rotation: 0.2,
     speed: 0.3
 };
 
