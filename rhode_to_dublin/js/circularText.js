@@ -6,7 +6,7 @@ const circularTextConfig = {
     letter_spacing: 5,
     diameter: 10,
     rotation: 0.05,
-    speed: 0.3
+    speed: 0.5
 };
 
 // Reset all site data
