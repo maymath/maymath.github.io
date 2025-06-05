@@ -5,7 +5,7 @@ const circularTextConfig = {
     circleX: 2,
     letter_spacing: 5,
     diameter: 10,
-    rotation: 0.5,
+    rotation: 0.15,
     speed: 0.3
 };
 
